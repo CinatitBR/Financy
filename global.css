@@ -1,3 +1,16 @@
+:root {
+  --purple: #8C6FCF;
+  --white: #FEFEFE;
+  --black: #363A41;
+  --blue: #5519DE;
+  --grey: #e2e0e0;
+  --dark-grey: #B1AFAF;
+  --yellow: yellow;
+
+  --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  --brand-shadow: 0px 4px 4px rgba(0, 0,0, 0.5);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +18,7 @@
 }
 
 html {
-  background: #FEFEFE;
+  background: var(--white);
 }
 
 body {
@@ -18,19 +31,14 @@ body {
 /* Header */
 
 header {
-  background: #363A41;
-  padding: 10px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.20));
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: var(--black);
+  box-shadow: var(--shadow);
 }
 
-header .logo {
+header .navbar-brand {
   font-family: 'Roboto Condensed', sans-serif;
-  color: #8C6FCF;
-  text-shadow: 0px 4px 4px rgba(0, 0,0, 0.5);
+  color: var(--purple);
+  text-shadow: var(--brand-shadow);
   cursor: pointer;
   letter-spacing: 0.3em;
 }
@@ -51,9 +59,9 @@ form {
   padding: 12px;
   max-width: 700px;
   margin: 80px auto 0;
-  background: #363A41;
+  background: var(--black);
   border-radius: 15px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.20);
+  box-shadow: var(--shadow);
   position: relative;
   z-index: 1;
 
@@ -65,7 +73,7 @@ form {
 
 /* Form info */
 
-.form-info-wrapper {
+.form-info__wrapper {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -74,13 +82,13 @@ form {
 
 .form-info {
   font-weight: 400;
-  color: #e2e0e0;
+  color: var(--grey);
 }
 
 .form-info a {
   font-weight: 700;
-  color: #FEFEFE;
-  background: #8C6FCF;
+  color: var(--white);
+  background: var(--purple);
   padding: 8px;
   border-radius: 15px;
   text-decoration: none;
@@ -91,7 +99,7 @@ form {
   content: "";
   width: 0;
   height: 2px;
-  background-color: yellow;
+  background-color: var(--yellow);
   border-radius: 15px;
   position: absolute;
   bottom: 7px;
@@ -106,7 +114,7 @@ form {
 /* Form title */
 
 .form-title {
-  color: #FEFEFE;
+  color: var(--white);
   font-weight: 500;
   cursor: default;
   position: relative;
@@ -116,7 +124,7 @@ form {
   content: "";
   width: 0;
   height: 4px;
-  background-color: yellow;
+  background-color: var(--yellow);
   border-radius: 15px;
   position: absolute;
   bottom: 0px;
@@ -127,39 +135,42 @@ form {
   width: 100%;
 }
 
-
 /* Fields */
 
-.fields .item {
-  padding: 15px;
+.field-list {
   width: 100%;
+  max-width: 400px;
 }
 
-.fields .item label {
-  color: #e2e0e0;
+.field-list .item {
+  padding: 15px;
+}
+
+.field-list .item label {
+  color: var(--grey);
   font-weight: 500;
   font-size: 18px;
   display: block;
 }
 
-.fields .item input {
+.field-list .item input {
   width: 100%;
   outline: none;
   border: none;
   border-radius: 15px;
-  background: #B1AFAF;
+  background: var(--dark-grey);
   padding: 5px 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.20);
+  box-shadow: var(--shadow);
   font-weight: 700;
   font-size: 20px;
-  color: #363A41;
-  border: 3px solid #B1AFAF;
+  color: var(--black);
+  border: 3px solid var(--dark-grey);
 }
 
 
-.fields .item input:focus {
+.field-list .item input:focus {
   transition: border 0.5s;
-  border: 3px solid #5519DE;
+  border: 3px solid var(--blue);
 }
 
 /* Button */
@@ -168,10 +179,10 @@ button {
   border: 0;
   font-size: 30px;
   font-weight: 700;
-  color: #FEFEFE;
+  color: var(--white);
   border-radius: 15px;
-  background: #363A41;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.20);
+  background: var(--black);
+  box-shadow: var(--shadow);
   padding: 4px 35px;
   position: absolute;
   bottom: -100px;
@@ -181,20 +192,6 @@ button {
 
 button:hover {
   transform: translateY(-5px);
-}
-
-/* Blob */
-.blob {
-  position: absolute;
-  top: -10px;
-  left: 150px;
-  z-index: 0;
-}
-
-/* Wave */
-.wave {
-  position: absolute;
-  bottom: 0;
 }
 
 /* Responsiveness */
@@ -210,11 +207,11 @@ button:hover {
     font-size: 35px;
   }
 
-  .fields .item label {
+  .field-list .item label {
     font-size: 15px;
   }
 
-  .fields .item input {
+  .field-list .item input {
     font-size: 18px;
   }
 
