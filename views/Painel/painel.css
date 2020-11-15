@@ -20,8 +20,9 @@ header .user-profile__wrapper {
 .menu-list {
   margin: 60px auto;
   max-width: 700px;
+
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -31,10 +32,15 @@ header .user-profile__wrapper {
   background: var(--black);
   border-radius: var(--border-radius);
   padding: 15px;
-  margin-bottom: 35px;
+  margin: 8px;
+  transition: transform 300ms;
 
   display: grid;
   place-items: center;
+}
+
+.menu:hover {
+  transform: translateY(-6px);
 }
 
 .menu-content {
@@ -45,51 +51,77 @@ header .user-profile__wrapper {
   color: var(--black);
   font-weight: bold;
   font-size: 35px;
+  border: 2px solid transparent;
+  transition: border 300ms ease;
 
   display: grid;
   place-items: center;
 }
 
-.menu-content .icon {
-  width: 50px;
-  height: 50px;
+.menu-content:hover {
+  border: 2px solid var(--blue);
+  color: var(--black);
 }
 
-.menu-title {
+.menu-content .icon {
+  width: 40px;
+  height: 40px;
+}
+
+
+.menu-title h3 {
   font-weight: 500;
   color: var(--grey);
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 15px;
+  position: relative;
 }
 
-/* Balance menu */
+.menu-title h3::before {
+  content: "";
+  width: 0;
+  height: 0.2rem;
+  background: yellow;
+  border-radius: var(--border-radius);
+  transition: width 300ms ease;
+  position: absolute;
+  bottom: -2px;
+}
+
+.menu:hover h3::before {
+  width: 100%;
+}
+
+/* Menu balance */
 
 .menu-balance {
-  width: 100%;
+  flex-basis: 100%;
 }
 
 .menu-balance .menu-content {
   width: 50%;
+  text-decoration: none;
 }
 
-/* Transaction menu */
+.menu-balance .menu-title {
+  font-size: 25px;
+}
+
+/* Menu transaction */
 
 .menu-transaction {
-  width: 49%;
+  flex-basis: calc(50% - 16px);
 }
 
-.menu__content-list {
+.wrapper-content {
   width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
 }
 
-.menu-transaction .menu-content {
-  display: inline-block;
-}
-
-/* Wallet menu */ 
+/* Menu wallet */ 
 
 .menu-wallet {
-  width: 49%;
+  flex-basis: calc(50% - 16px);
 }

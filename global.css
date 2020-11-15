@@ -168,7 +168,6 @@ form {
   border: 3px solid var(--dark-grey);
 }
 
-
 .field-list .item input:focus {
   transition: border 0.5s;
   border: 3px solid var(--blue);
