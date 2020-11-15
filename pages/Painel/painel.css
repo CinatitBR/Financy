@@ -1,3 +1,5 @@
+/* Header */
+
 header .nav-link {
   color: var(--white);
   font-weight: 500;
@@ -11,4 +13,77 @@ header .user-profile__wrapper {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+
+/* Menu list */
+
+.menu-list {
+  margin: 60px auto;
+  max-width: 700px;
+  
+}
+
+/* Menu */
+
+.menu {
+  background: var(--black);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-bottom: 35px;
+
+  display: grid;
+  place-items: center;
+}
+
+.menu-content {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  width: fit-content;
+  color: var(--black);
+  font-weight: bold;
+  font-size: 35px;
+
+  display: grid;
+  place-items: center;
+}
+
+.menu-content .icon {
+  width: 50px;
+  height: 50px;
+}
+
+.menu-title {
+  font-weight: 500;
+  color: var(--grey);
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+/* Balance menu */
+
+.balance .menu-content {
+  width: 50%;
+}
+
+/* Transaction menu */
+
+.transaction {
+  width: 50%;
+}
+
+.menu__content-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.transaction .menu-content {
+  display: inline-block;
+}
+
+/* Wallet menu */ 
+
+.wallet {
+  width: 50%;
 }
