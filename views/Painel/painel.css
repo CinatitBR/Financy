@@ -11,7 +11,7 @@ header .nav-item {
   background: var(--purple);
   border-radius: 15px;
   width: fit-content;
-  padding: 3px;
+  /* padding: 3px; */
 }
 
 header .user-profile {
