@@ -1,7 +1,7 @@
 :root {
+  --black: #363A41;
   --purple: #8C6FCF;
   --white: #FEFEFE;
-  --black: #363A41;
   --blue: #5519DE;
   --grey: #e2e0e0;
   --dark-grey: #B1AFAF;
@@ -31,7 +31,7 @@ body {
 /* Header */
 
 header {
-  background: var(--black);
+  background: var(--black); 
   box-shadow: var(--shadow);
 }
 
@@ -59,7 +59,7 @@ form {
   padding: 12px;
   max-width: 700px;
   margin: 80px auto 0;
-  background: var(--black);
+  background:   var(--black);
   border-radius: 15px;
   box-shadow: var(--shadow);
   position: relative;
@@ -163,7 +163,7 @@ form {
   box-shadow: var(--shadow);
   font-weight: 700;
   font-size: 20px;
-  color: var(--black);
+  color:   var(--black);
   border: 3px solid var(--dark-grey);
 }
 
@@ -181,7 +181,7 @@ button {
   font-weight: 700;
   color: var(--white);
   border-radius: 15px;
-  background: var(--black);
+  background:   var(--black);
   box-shadow: var(--shadow);
   padding: 4px 35px;
   position: absolute;
