@@ -1,15 +1,20 @@
 /* Header */
 
-header .nav-link {
+header .navbar-brand h1 {
+  color: var(--purple);
+}
+
+header .nav-item {
   color: var(--white);
   font-weight: 500;
   font-size: 20px;
-  margin-right: 15px;
   background: var(--purple);
   border-radius: 15px;
+  width: fit-content;
+  padding: 3px;
 }
 
-header .user-profile__wrapper {
+header .user-profile {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -35,8 +40,10 @@ header .user-profile__wrapper {
   margin: 8px;
   transition: transform 300ms;
 
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .menu:hover {
@@ -48,9 +55,6 @@ header .user-profile__wrapper {
   border-radius: var(--border-radius);
   padding: 15px;
   width: fit-content;
-  color: var(--black);
-  font-weight: bold;
-  font-size: 35px;
   border: 2px solid transparent;
   transition: border 300ms ease;
 
@@ -67,7 +71,6 @@ header .user-profile__wrapper {
   width: 40px;
   height: 40px;
 }
-
 
 .menu-title h3 {
   font-weight: 500;
@@ -99,7 +102,10 @@ header .user-profile__wrapper {
 }
 
 .menu-balance .menu-content {
-  width: 50%;
+  min-width: 65%;
+  color: var(--black);
+  font-weight: bold;
+  font-size: 45px;
   text-decoration: none;
 }
 
@@ -117,11 +123,24 @@ header .user-profile__wrapper {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 /* Menu wallet */ 
 
 .menu-wallet {
   flex-basis: calc(50% - 16px);
+}
+
+/* Responsiveness */
+
+@media only screen and (max-width:600px) {
+  .menu-list {
+    flex-direction: column;
+  }
+
+  .menu-balance .menu-content {
+    width: 100%;
+    font-size: 40px;
+  }
 }
