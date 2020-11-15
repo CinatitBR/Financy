@@ -20,7 +20,9 @@ header .user-profile__wrapper {
 .menu-list {
   margin: 60px auto;
   max-width: 700px;
-  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 /* Menu */
@@ -62,14 +64,18 @@ header .user-profile__wrapper {
 
 /* Balance menu */
 
-.balance .menu-content {
+.menu-balance {
+  width: 100%;
+}
+
+.menu-balance .menu-content {
   width: 50%;
 }
 
 /* Transaction menu */
 
-.transaction {
-  width: 50%;
+.menu-transaction {
+  width: 49%;
 }
 
 .menu__content-list {
@@ -78,12 +84,12 @@ header .user-profile__wrapper {
   justify-content: space-around;
 }
 
-.transaction .menu-content {
+.menu-transaction .menu-content {
   display: inline-block;
 }
 
 /* Wallet menu */ 
 
-.wallet {
-  width: 50%;
+.menu-wallet {
+  width: 49%;
 }
