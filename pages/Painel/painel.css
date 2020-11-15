@@ -1,8 +1,8 @@
 header .nav-link {
-  color: #FEFEFE;
-  font-weight: medium;
+  color: var(--white);
+  font-weight: 500;
   font-size: 20px;
   margin-right: 15px;
-  background: #8C6FCF;
+  background: var(--purple);
   border-radius: 15px;
 }

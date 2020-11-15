@@ -24,7 +24,7 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0.05em;
-  background: url('./background.svg');
+  background: url('./images/background.svg');
   background-size: cover;
 }
 
