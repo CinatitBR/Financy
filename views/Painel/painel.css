@@ -11,7 +11,6 @@ header .nav-item {
   background: var(--purple);
   border-radius: 15px;
   width: fit-content;
-  /* padding: 3px; */
 }
 
 header .user-profile {
@@ -38,21 +37,18 @@ header .user-profile {
   border-radius: var(--border-radius);
   padding: 15px;
   margin: 8px;
+  box-shadow: var(--shadow);
   transition: transform 300ms;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-}
-
-.menu:hover {
-  transform: translateY(-6px);
+  /* justify-content: space-evenly; */
 }
 
 .menu-content {
   background: var(--white);
-  border-radius: var(--border-radius);
+  border-radius: 10px;
   padding: 15px;
   width: fit-content;
   border: 2px solid transparent;
@@ -68,15 +64,16 @@ header .user-profile {
 }
 
 .menu-content .icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .menu-title h3 {
   font-weight: 500;
+  line-height: 0;
   color: var(--grey);
   font-size: 20px;
-  margin-top: 15px;
+  margin-top: 25px;
   position: relative;
 }
 
@@ -88,7 +85,7 @@ header .user-profile {
   border-radius: var(--border-radius);
   transition: width 300ms ease;
   position: absolute;
-  bottom: -2px;
+  bottom: -15px;
 }
 
 .menu:hover h3::before {
@@ -105,7 +102,7 @@ header .user-profile {
   min-width: 65%;
   color: var(--black);
   font-weight: bold;
-  font-size: 45px;
+  font-size: 40px;
   text-decoration: none;
 }
 
@@ -142,5 +139,10 @@ header .user-profile {
   .menu-balance .menu-content {
     width: 100%;
     font-size: 40px;
+  }
+
+  .menu-content .icon {
+    width: 30px;
+    height: 30px;
   }
 }
