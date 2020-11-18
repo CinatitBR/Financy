@@ -56,7 +56,7 @@ header .navbar-brand {
 
 /* Form */
 
-form {
+.form {
   padding: 12px;
   max-width: 700px;
   margin: 80px auto 0;
@@ -154,7 +154,9 @@ form {
   display: block;
 }
 
-.field-list .item input {
+.field-list .item input,
+.field-list .item select,
+.field-list .item option {
   width: 100%;
   outline: none;
   border: none;
@@ -164,18 +166,19 @@ form {
   box-shadow: var(--shadow);
   font-weight: 700;
   font-size: 20px;
-  color:   var(--black); 
+  color: var(--black);
   border: 3px solid var(--dark-grey);
 }
 
-.field-list .item input:focus {
+.field-list .item input:focus,
+.field-list .item select:focus {
   transition: border 0.5s;
   border: 3px solid var(--blue);
 }
 
-/* Button */
+/* Form button */
 
-button {
+.form-button {
   border: 0;
   font-size: 30px;
   font-weight: 700;
@@ -190,7 +193,7 @@ button {
   transition: transform 0.3s;
 }
 
-button:hover {
+.form-button:hover {
   transform: translateY(-5px);
 }
 
@@ -215,7 +218,7 @@ button:hover {
     font-size: 18px;
   }
 
-  button {
+  .form-button {
     font-size: 28px;
   }
 }

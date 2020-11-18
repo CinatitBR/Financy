@@ -73,12 +73,12 @@
         <div class="menu-transaction menu">
           
           <div class="wrapper-content">
-            <a href="#" class="menu-content">
-            <img src="../../images/plus.svg" class="icon" alt="adicionar ganho">
+            <a href="#" class="menu-content" data-toggle="modal" data-target="#addTransaction">
+              <img src="../../images/plus.svg" class="icon plus-icon" alt="adicionar ganho">
             </a>
   
             <a href="#" class="menu-content">
-              <img src="../../images/minus.svg" class="icon" alt="adicionar gasto">
+              <img src="../../images/minus.svg" class="icon minus-icon" alt="adicionar gasto">
             </a>
           </div>
 
@@ -98,6 +98,77 @@
 
       </div>
 
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Modal - Adicionar ganho -->
+    <div 
+      class="modal fade" 
+      id="addTransaction" 
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title">Adicionar um ganho</h5>
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <form action="#">
+
+            <div class="modal-body">
+  
+              <div class="field-list">
+  
+                <div class="item">
+                  <label for="categoriaOption">Selecione a categoria do seu ganho:</label>
+                  <select name="categoria" class="form-control" id="categoriaOption">
+                    <option value="Educação">Educação</option>
+                    <option value="Comida">Comida</option>
+                    <option value="Veículo">Veículo</option>
+                  </select>
+                </div>
+    
+                <div class="item">
+                  <label for="inputValor">Digite o valor do seu ganho:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text real-symbol">R$</span>
+                    </div>
+                    <input 
+                      type="number" 
+                      class="form-control" 
+                      aria-label="Amount (to the nearest dollar)" 
+                      id="inputValor"
+                      style="width: initial;"
+                    >
+                  </div>
+                </div>
+  
+              </div>
+  
+            </div>
+  
+            <div class="modal-footer">
+              <button 
+                type="button" 
+                class="btn btn-secondary" 
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+  
+              <button type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
     </div>
 
   </body>

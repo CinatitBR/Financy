@@ -43,7 +43,7 @@ header .user-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
 }
 
 .menu-content {
@@ -73,7 +73,7 @@ header .user-profile {
   line-height: 0;
   color: var(--grey);
   font-size: 20px;
-  margin-top: 25px;
+  margin-top: 30px;
   position: relative;
 }
 
@@ -127,6 +127,47 @@ header .user-profile {
 
 .menu-wallet {
   flex-basis: calc(50% - 16px);
+}
+
+/* Modal */
+
+.modal-open {
+  padding:0 !important;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: var(--black);
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--dark-grey);
+}
+
+.modal-header .close span {
+  color: var(--white);
+  text-shadow: none;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--dark-grey);
+}
+
+.modal-title {
+  color: var(--white);
+  font-weight: 500;
+  cursor: default;
+  position: relative;
+}
+
+  /* Real currency symbol  */
+.real-symbol {
+  color: var(--grey);
+  background-color: var(--black);
+  border: 2px solid var(--dark-grey);
+  border-radius: var(--border-radius);
 }
 
 /* Responsiveness */
