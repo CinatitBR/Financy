@@ -1,6 +1,7 @@
 :root {
   --green: #4caf50;
-  --red: #af4c4c;
+  --red: #da4343;
+  --brown: #947441;
 }
 
 /* Header */
@@ -59,7 +60,7 @@ header .user-profile {
   padding: 15px;
   width: fit-content;
   border: 3px solid transparent;
-  transition: border 300ms ease;
+  transition: border 300ms ease, color 300ms ease;
 
   display: grid;
   place-items: center;
@@ -104,6 +105,10 @@ header .user-profile {
   flex-basis: 100%;
 }
 
+.menu-balance .menu-title {
+  font-size: 25px;
+}
+
 .menu-balance .menu-content {
   min-width: 65%;
   color: var(--black);
@@ -112,8 +117,9 @@ header .user-profile {
   text-decoration: none;
 }
 
-.menu-balance .menu-title {
-  font-size: 25px;
+.menu-balance .menu-content:hover {
+  border: 3px solid var(--green);
+  color: var(--green);
 }
 
 /* Menu transaction */
@@ -155,6 +161,14 @@ header .user-profile {
   flex-basis: calc(50% - 16px);
 }
 
+.wallet-icon__wrapper:hover {
+  border: 3px solid var(--brown);
+}
+
+.wallet-icon__wrapper:hover .wallet-icon {
+  fill: var(--brown);
+}
+
 /* Modal */
 
 .modal-open {
@@ -182,10 +196,10 @@ header .user-profile {
 }
 
 .modal-title {
-  color: var(--white);
-  font-weight: 500;
+  font-weight: 700;
   cursor: default;
   position: relative;
+  font-size: 25px;
 }
 
   /* Real currency symbol  */
@@ -211,5 +225,9 @@ header .user-profile {
   .menu-content .icon {
     width: 30px;
     height: 30px;
+  }
+
+  .modal-title {
+    font-size: 20px;
   }
 }
