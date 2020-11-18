@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -73,12 +73,12 @@
         <div class="menu-transaction menu">
           
           <div class="wrapper-content">
-            <a href="#" class="menu-content" data-toggle="modal" data-target="#addTransaction">
+            <a href="#" class="menu-content" data-toggle="modal" data-target="#addEarnTransaction">
               <img src="../../images/plus.svg" class="icon plus-icon" alt="adicionar ganho">
             </a>
   
-            <a href="#" class="menu-content">
-              <img src="../../images/minus.svg" class="icon minus-icon" alt="adicionar gasto">
+            <a href="#" class="menu-content" data-toggle="modal" data-target="#addExpenseTransaction">
+              <img src="../../images/minus.svg" class="icon minus-icon" alt="adicionar despesa">
             </a>
           </div>
 
@@ -105,7 +105,7 @@
     <!-- Modal - Adicionar ganho -->
     <div 
       class="modal fade" 
-      id="addTransaction" 
+      id="addEarnTransaction" 
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -127,9 +127,8 @@
                 <div class="item">
                   <label for="categoriaOption">Selecione a categoria do seu ganho:</label>
                   <select name="categoria" class="form-control" id="categoriaOption">
-                    <option value="Educação">Educação</option>
-                    <option value="Comida">Comida</option>
-                    <option value="Veículo">Veículo</option>
+                    <option value="Salário">Salário</option>
+                    <option value="Poupança">Poupança</option>
                   </select>
                 </div>
     
@@ -143,6 +142,7 @@
                       type="number" 
                       class="form-control" 
                       aria-label="Amount (to the nearest dollar)" 
+                      step="0.01"
                       id="inputValor"
                       style="width: initial;"
                     >
@@ -159,7 +159,77 @@
                 class="btn btn-secondary" 
                 data-dismiss="modal"
               >
-                Close
+                Fechar
+              </button>
+  
+              <button type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal- Adicinar despesa -->
+    <div 
+      class="modal fade" 
+      id="addExpenseTransaction" 
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title">Adicionar despesa</h5>
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <form action="#">
+
+            <div class="modal-body">
+  
+              <div class="field-list">
+  
+                <div class="item">
+                  <label for="categoriaOption">Selecione a categoria da sua despesa:</label>
+                  <select name="categoria" class="form-control" id="categoriaOption">
+                    <option value="Comida">Comida</option>
+                    <option value="Educação">Educação</option>
+                    <option value="Veículo">Veículo</option>
+                  </select>
+                </div>
+    
+                <div class="item">
+                  <label for="inputValor">Digite o valor da sua despesa:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text real-symbol">R$</span>
+                    </div>
+                    <input 
+                      type="number" 
+                      class="form-control" 
+                      aria-label="Amount (to the nearest dollar)" 
+                      step="0.01"
+                      id="inputValor"
+                      style="width: initial;"
+                    >
+                  </div>
+                </div>
+  
+              </div>
+  
+            </div>
+  
+            <div class="modal-footer">
+              <button 
+                type="button" 
+                class="btn btn-secondary" 
+                data-dismiss="modal"
+              >
+                Fechar
               </button>
   
               <button type="submit" class="btn btn-primary">Adicionar</button>
