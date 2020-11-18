@@ -71,22 +71,54 @@
         <div class="menu-transaction menu">
           
           <div class="wrapper-content">
-            <a href="#" class="menu-content plus-icon__wrapper" data-toggle="modal" data-target="#addEarnTransaction">
-              <!-- Plus icon -->
-              <svg class="icon plus-icon" height="30px" viewBox="0 0 469.33333 469.33333" width="30px" xmlns="http://www.w3.org/2000/svg">
-                <g fill="#363A41">
-                  <path class="icon plus-icon" d="m437.332031 192h-405.332031c-17.664062 0-32 14.335938-32 32v21.332031c0 17.664063 14.335938 32 32 32h405.332031c17.664063 0 32-14.335937 32-32v-21.332031c0-17.664062-14.335937-32-32-32zm0 0"/>
-                  <path class="icon plus-icon" d="m192 32v405.332031c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-405.332031c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32zm0 0"/>
-                </g>
-              </svg>
+
+            <!-- Tooltip ganho -->
+            <a 
+              href="#" 
+              data-toggle="tooltip" 
+              data-placement="top" 
+              title="Adicionar ganho"
+            >
+              <!-- Modal -->
+              <span
+                href="#" 
+                class="menu-content plus-icon__wrapper" 
+                data-toggle="modal" 
+                data-target="#addEarnTransaction"
+              >
+
+                <!-- Plus icon -->
+                <svg class="icon plus-icon" height="30px" viewBox="0 0 469.33333 469.33333" width="30px" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="#363A41">
+                    <path class="icon plus-icon" d="m437.332031 192h-405.332031c-17.664062 0-32 14.335938-32 32v21.332031c0 17.664063 14.335938 32 32 32h405.332031c17.664063 0 32-14.335937 32-32v-21.332031c0-17.664062-14.335937-32-32-32zm0 0"/>
+                    <path class="icon plus-icon" d="m192 32v405.332031c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-405.332031c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32zm0 0"/>
+                  </g>
+                </svg>
+
+              </span>
             </a>
-  
-            <a href="#" class="menu-content minus-icon__wrapper" data-toggle="modal" data-target="#addExpenseTransaction">
-              <!-- Minus icon -->
-              <svg class="icon minus-icon" height="469pt" viewBox="0 -192 469.33333 469" width="469pt" fill="#363A41" xmlns="http://www.w3.org/2000/svg">
-                <path d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0"/>
-              </svg>
+
+            <!-- Tooltip despesa -->
+            <a 
+              href="#" 
+              data-toggle="tooltip" 
+              data-placement="top" 
+              title="Adicionar despesa"
+            >
+              <!-- Modal -->
+              <span 
+                href="#" 
+                class="menu-content minus-icon__wrapper" 
+                data-toggle="modal" 
+                data-target="#addExpenseTransaction"
+              >
+                <!-- Minus icon -->
+                <svg class="icon minus-icon" height="469pt" viewBox="0 -192 469.33333 469" width="469pt" fill="#363A41" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0"/>
+                </svg>
+              </span>
             </a>
+
           </div>
 
           <div class="menu-title"><h3>Adicionar transação</h3></div>
@@ -95,7 +127,7 @@
 
         <div class="menu-wallet menu">
 
-          <a href="#" class="menu-content" data-toggle="modal" data-target="#addAccount">
+          <a href="#" class="menu-content wallet-icon__wrapper" data-toggle="modal" data-target="#addAccount">
             <!-- Wallet icon -->
             <svg class="icon wallet-icon" fill="#363A41" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	            width="890.5px" height="890.5px" viewBox="0 0 890.5 890.5" style="enable-background:new 0 0 890.5 890.5;" xml:space="preserve"
@@ -136,7 +168,7 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <h5 class="modal-title">Adicionar conta</h5>
+            <h5 class="modal-title" style="color: var(--brown);">Adicionar conta</h5>
             
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -203,7 +235,7 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <h5 class="modal-title">Adicionar um ganho</h5>
+            <h5 class="modal-title" style="color: var(--green);">Adicionar um ganho</h5>
             
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -273,7 +305,9 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <h5 class="modal-title">Adicionar despesa</h5>
+            <h5 class="modal-title" style="color: var(--red)">
+              Adicionar despesa
+            </h5>
             
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
@@ -337,4 +371,3 @@
 
   </body>
 </html>
-
