@@ -1,3 +1,8 @@
+:root {
+  --green: #4caf50;
+  --red: #af4c4c;
+}
+
 /* Header */
 
 header .navbar-brand h1 {
@@ -46,27 +51,28 @@ header .user-profile {
   justify-content: space-evenly;
 }
 
+/* Menu content */
+
 .menu-content {
   background: var(--white);
   border-radius: 10px;
   padding: 15px;
   width: fit-content;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   transition: border 300ms ease;
 
   display: grid;
   place-items: center;
 }
 
-.menu-content:hover {
-  border: 2px solid var(--blue);
-  color: var(--black);
-}
-
 .menu-content .icon {
   width: 30px;
   height: 30px;
+  fill: var(--black);
+  transition: fill 300ms ease;
 }
+
+/* Menu title */
 
 .menu-title h3 {
   font-weight: 500;
@@ -121,6 +127,26 @@ header .user-profile {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+/* Plus icon */
+
+.plus-icon__wrapper:hover {
+  border: 3px solid var(--green);
+}
+
+.plus-icon__wrapper:hover .plus-icon {
+  fill: var(--green);
+}
+
+/* Minus icon */
+
+.minus-icon__wrapper:hover {
+  border: 3px solid var(--red);
+}
+
+.minus-icon__wrapper:hover .minus-icon {
+  fill: var(--red);
 }
 
 /* Menu wallet */ 
