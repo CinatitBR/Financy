@@ -1,8 +1,8 @@
 <?php
-  class CadastroController {
+  class CadastroController extends Controller {
 
     public function index() {
-      var_dump('hi');
-      // "Method index, inside CadastroController :)";
+      $this->view('cadastro');
     }
+    
   }

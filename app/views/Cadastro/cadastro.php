@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="../../assets/global.css" />
+    <link rel="stylesheet" href="./global.css" />
     <!-- Bootstrap scripts -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -31,7 +31,7 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <title>Financy - Login</title>
+    <title>Financy - Cadastro</title>
   </head>
   <body>
 
