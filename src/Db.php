@@ -1,13 +1,18 @@
 <?php
-  class Db {
-    private $host = 'localhost';
-    private $username = 'root';
-    private $password = '';
-    private $db_name = 'gestor_financeiro';
 
-    protected function connect() {
-      $db = new mysqli($host, $user, $password, $db_name);
-      return $db;
-    } 
+abstract class Db {
+  private static $db;
+
+  public static function getDb() {
+    $host = 'localhost';
+    $username = 'root';
+    $password = '';
+    $db_name = 'pais';
+
+    // Create database connection
+    self::$db = new mysqli($host, $username, $password, $db_name);
+
+    return self::$db;
   }
-?>
+
+}
