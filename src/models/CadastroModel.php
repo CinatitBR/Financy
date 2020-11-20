@@ -4,7 +4,7 @@ class CadastroModel {
 
   public static function teste() {
     // Get database connection
-    $db = Db::getDb();
+    $connection = Connection::getConnection();
 
     $sql = '
       SELECT nm_cidade

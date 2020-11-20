@@ -6,7 +6,7 @@ class Core {
     // Method to be executed
     $method = 'index';
 
-    // Verify if "page" query string exists
+    // Verify if query string "page" exists
     if (isset($url['page'])) {
       // Create controller name from the query string 
       $controller_name = ucfirst($url['page'] . 'Controller');
@@ -21,11 +21,11 @@ class Core {
       return;
     }
 
-    // Creates controller object
-    $controller_obj = new $controller_name;
+    // Creates controller 
+    $controller = new $controller_name;
 
     // Executes method
-    $controller_obj->{$method}();
+    $controller->{$method}();
 
   }
 }
