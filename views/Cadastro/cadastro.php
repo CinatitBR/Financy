@@ -43,7 +43,7 @@
 
     <div class="wrapper">
       
-      <form method="POST" action="Cadastro/register" class="form">
+      <form method="POST" action="" class="form">
         <div class="form-info__wrapper">
           <p class="form-info">
             Já tem uma conta? <a href="#">Entrar</a>
@@ -55,19 +55,18 @@
         <div class="field-list">
           <div class="item">
             <label for="name">Como você gostaria de ser chamado?</label>
-            <input type="text" name="name" maxlength="100" required />
+            <input type="text" name="name" maxlength="100" id="name" required />
           </div>
       
           <div class="item">
             <label for="email">Nos diga qual o seu melhor Email:</label>
-            <input type="email" name="email" maxlength="254" required />
+            <input type="email" name="email" maxlength="254" id="email" required />
           </div>
       
           <div class="item">
             <label for="password">Digite uma senha forte para sua conta:</label>
-            <input type="password" name="password" class="form-control" maxlength="255" required />
+            <input type="password" name="password" class="form-control" id="password" maxlength="255" required />
           </div>
-        </div>
       
         <button type="submit" class="form-button">Avançar</button>
       </form>
@@ -75,4 +74,14 @@
     </div>
 
   </body>
+
+  <script type="text/javascript">
+    var field = document.querySelector('#name');
+
+    field.addEventListener('keyup', (event) => {  
+      var userName = field.value;
+      userName = userName.replace(/\s/g, '');
+      field.value = userName;
+    });
+  </script>
 </html>
