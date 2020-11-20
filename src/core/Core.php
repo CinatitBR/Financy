@@ -4,18 +4,18 @@ class Core {
   public function start($url) {
 
     // Method to be executed
-    $action = 'index';
+    $method = 'index';
 
     // Verify if "page" query string exists
     if (isset($url['page'])) {
-      // Create controller name from the query string in the URL
+      // Create controller name from the query string 
       $controller_name = ucfirst($url['page'] . 'Controller');
     } 
     else {
       $controller_name = 'CadastroController';
     }
 
-    // Verify whether controller exists
+    // Verify if controller doesn't exist
     if (!class_exists($controller_name)) {
       echo "Página não encontrada";
       return;
@@ -24,8 +24,8 @@ class Core {
     // Creates controller object
     $controller_obj = new $controller_name;
 
-    // Executes $action method
-    $controller_obj->{$action}();
+    // Executes method
+    $controller_obj->{$method}();
 
   }
 }

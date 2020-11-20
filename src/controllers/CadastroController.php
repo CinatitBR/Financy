@@ -2,10 +2,9 @@
 
 $cadastro_page = file_get_contents('./src/views/Cadastro/cadastro.html');
 
-class CadastroController {
+class CadastroController extends Controller {
 
   public function index() {
-    CadastroModel::teste();
-    // echo $cadastro_page;
+    $this->loadTemplate('Cadastro');
   }
 }

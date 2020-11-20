@@ -43,7 +43,9 @@
 
     <div class="wrapper">
 
-      {{ content }}
+      <?php 
+        $this->loadViewIntoTemplate($viewName, $modelData);
+      ?>
       
     </div>
 
