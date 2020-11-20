@@ -1,5 +1,5 @@
 
-<form class="form">
+<form method="POST" action="Cadastro/register" class="form">
   <div class="form-info__wrapper">
     <p class="form-info">
       Já tem uma conta? <a href="#">Entrar</a>
@@ -11,29 +11,25 @@
   <div class="field-list">
     <div class="item">
       <label for="name">Como você gostaria de ser chamado?</label>
-      <input type="text" id="name" maxlength="100" required />
+      <input type="text" name="name" maxlength="100" required />
     </div>
 
     <div class="item">
       <label for="email">Nos diga qual o seu melhor Email:</label>
-      <input type="email" id="email" maxlength="254" required />
+      <input type="email" name="email" maxlength="254" required />
     </div>
 
     <div class="item">
       <label for="password">Digite uma senha forte para sua conta:</label>
-      <input type="password" class="form-control" id="password" maxlength="255" required />
+      <input type="password" name="password" class="form-control" maxlength="255" required />
     </div>
 
-    <div class="item">
-      <label for="repeat-password"
-        >Quase lá! Repita sua senha mais uma vez:</label
-      >
-      <input
-        type="password"
-        id="repeat-password"
-        maxlength="255"
-        required
-      />
+    <div class="item error">
+      <?php
+        if (isset($errorMessage)) {
+          echo $errorMessage;
+        }
+      ?>
     </div>
   </div>
 

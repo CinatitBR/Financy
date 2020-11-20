@@ -1,6 +1,6 @@
 <?php
 
-class CadastroModel {
+class UserModel {
 
   private $connection;
 

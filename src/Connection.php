@@ -10,7 +10,7 @@ class Connection {
       $host = 'localhost';
       $username = 'root';
       $password = '';
-      $db_name = 'pais';
+      $db_name = 'gestor_financeiro';
   
       // Create database connection
       self::$connection = new mysqli($host, $username, $password, $db_name);

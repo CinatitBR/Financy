@@ -6,6 +6,9 @@
   --grey: #e2e0e0;
   --dark-grey: #B1AFAF;
   --yellow: yellow;
+  --green: #4caf50;
+  --red: #da4343;
+  --brown: #947441;
 
   --shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   --brand-shadow: 0px 4px 4px rgba(0, 0,0, 0.5);
@@ -177,6 +180,15 @@ header .navbar-brand {
   border: 3px solid var(--blue);
 }
 
+/* Error field */
+.field-list .item.error {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 18px;
+  color: var(--red);
+  font-weight: bold;
+}
+
 /* Form button */
 
 .form-button {
@@ -217,6 +229,10 @@ header .navbar-brand {
 
   .field-list .item input {
     font-size: 18px;
+  }
+
+  .field-list .item.error {
+    font-size: 15px;
   }
 
   .form-button {

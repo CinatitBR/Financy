@@ -16,9 +16,9 @@ class Controller {
 
   public function loadViewIntoTemplate($viewName, $modelData = array()) {
     extract($modelData);
-    $viewPath = './src/views/' . $viewName . '/' . $viewName . '.html';
+    $view = './src/views/' . $viewName . '/' . $viewName . '.php';
 
     // Call view
-    require($viewPath);
+    require($view);
   }
 }
