@@ -180,28 +180,6 @@ header .navbar-brand {
   border: 3px solid var(--blue);
 }
 
-/* Error field */
-
-/* .item.success {
-  padding-top: 0;
-  padding-bottom: 0;
-  font-size: 18px;
-  color: var(--green);
-  font-weight: bold;
-
-  display: none;
-}
-
-.item.error {
-  padding-top: 0;
-  padding-bottom: 0;
-  font-size: 18px;
-  color: var(--red);
-  font-weight: bold;
-
-  display: none;
-} */
-
 /* Form button */
 
 .form-button {
