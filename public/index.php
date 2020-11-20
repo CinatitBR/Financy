@@ -1,2 +1,4 @@
 <?php
-echo("Hellooo");
+  require_once '../app/require.php';
+  $core = new Core;
+  $core->start();
