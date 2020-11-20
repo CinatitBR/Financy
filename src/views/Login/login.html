@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="../../global.css" />
+    <link rel="stylesheet" href="../../../assets/global.css" />
     <!-- Bootstrap scripts -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -31,7 +31,7 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <title>Financy - Cadastre-se!</title>
+    <title>Financy - Login</title>
   </head>
   <body>
 
@@ -44,41 +44,26 @@
     <div class="wrapper">
 
       <form class="form">
-        <div class="form-info__wrapper">
+        <div class="form-info-wrapper">
           <p class="form-info">
-            Já tem uma conta? <a href="#">Entrar</a>
+            Ainda não tem uma conta? <a href="#">Cadastrar</a>
           </p>
         </div>
   
-        <h1 class="form-title">Cadastre-se.</h1>
+        <h1 class="form-title">Login</h1>
   
         <div class="field-list">
-          <div class="item">
-            <label for="name">Como você gostaria de ser chamado?</label>
-            <input type="text" id="name" maxlength="100" required />
-          </div>
   
           <div class="item">
-            <label for="email">Nos diga qual o seu melhor Email:</label>
+            <label for="email">Digite seu email:</label>
             <input type="email" id="email" maxlength="254" required />
           </div>
   
           <div class="item">
-            <label for="password">Digite uma senha forte para sua conta:</label>
+            <label for="password">Digite sua senha:</label>
             <input type="password" class="form-control" id="password" maxlength="255" required />
           </div>
   
-          <div class="item">
-            <label for="repeat-password"
-              >Quase lá! Repita sua senha mais uma vez:</label
-            >
-            <input
-              type="password"
-              id="repeat-password"
-              maxlength="255"
-              required
-            />
-          </div>
         </div>
   
         <button type="submit" class="form-button">Avançar</button>
