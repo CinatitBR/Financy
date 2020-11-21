@@ -15,5 +15,19 @@
 
       $this->view('cadastro', $data);
     }
+
+    public function register() {
+      $username = $_POST['username'];
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+
+      $data = [
+        'username' => $username,
+        'email' => $email,
+        'password' => $password
+      ];
+
+      $this->view('cadastro', $data);
+    }
     
   }
