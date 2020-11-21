@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <?php require APPROOT . '/views/templates/head.php' ?>
+  
 </head>
 <body>
 
-  <?php APPROOT . '/views/templates/header.php' ?>
+  <?php require APPROOT . '/views/templates/header.php' ?>
 
   <div class="wrapper">
 

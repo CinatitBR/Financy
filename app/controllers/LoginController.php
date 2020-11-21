@@ -1,6 +1,6 @@
-<?php
+<?php 
 
-  class CadastroController extends Controller {
+  class LoginController extends Controller {
     private $userModel;
 
     public function __construct() {
@@ -9,10 +9,9 @@
 
     public function index() {
       $data = [
-        "title" => "Cadastro",
+        "title" => "Login"
       ];
 
-      $this->view('cadastro', $data);
+      $this->view('login', $data);
     }
-    
   }

@@ -11,7 +11,7 @@
 
   <div class="wrapper">
 
-    <form method="POST" action="<?php echo './cadastro/register' ?>" class="form">
+    <form class="form" method="POST" action="<?php echo URLROOT; ?>/cadastro">
       <div class="form-info__wrapper">
         <p class="form-info">
           Já tem uma conta? <a href="#">Entrar</a>
