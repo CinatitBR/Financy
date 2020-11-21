@@ -24,12 +24,20 @@
 
         <div class="item">
           <label for="email">Digite seu email:</label>
-          <input type="email" id="email" maxlength="254" required />
+          <input type="email" name="email" id="email" maxlength="254" required />
+
+          <div class="invalid-feedback">
+            <?php echo $data['emailError']; ?>
+          </div>
         </div>
 
         <div class="item">
           <label for="password">Digite sua senha:</label>
-          <input type="password" class="form-control" id="password" maxlength="255" required />
+          <input type="password" name="password" id="password" maxlength="255" required />
+
+          <div class="invalid-feedback">
+            <?php echo $data['passwordError']; ?>
+          </div>
         </div>
 
       </div>

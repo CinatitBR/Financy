@@ -10,10 +10,18 @@
     public function index() {
       $data = [
         "title" => "Cadastro",
-        "usernameError" => "Por favor, preencha corretamente.",
-        "emailError" => "Erro email",
-        "passwordError" => "Erro senha" 
+        "username" => "",
+        "email" => "",
+        "password" => "",
+        "usernameError" => "",
+        "emailError" => "",
+        "passwordError" => "",
       ];
+
+      // Checks whether server has received a POST request 
+      if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+      }
 
       $this->view('cadastro', $data);
     }

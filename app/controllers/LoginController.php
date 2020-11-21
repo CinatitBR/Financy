@@ -9,7 +9,11 @@
 
     public function index() {
       $data = [
-        "title" => "Login"
+        "title" => "Login",
+        "email" => "",
+        "passoword" => "",
+        "emailError" => "",
+        "passwordError" => ""
       ];
 
       $this->view('login', $data);
