@@ -12,9 +12,9 @@
   <div class="wrapper">
 
     <form class="form">
-      <div class="form-info-wrapper">
+      <div class="form-info__wrapper">
         <p class="form-info">
-          Ainda não tem uma conta? <a href="#">Cadastrar</a>
+          Ainda não tem uma conta? <a href="<?php echo URLROOT ?>/cadastro">Cadastrar</a>
         </p>
       </div>
 

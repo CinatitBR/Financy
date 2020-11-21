@@ -10,6 +10,9 @@
     public function index() {
       $data = [
         "title" => "Cadastro",
+        "usernameError" => "Por favor, preencha corretamente.",
+        "emailError" => "Erro email",
+        "passwordError" => "Erro senha" 
       ];
 
       $this->view('cadastro', $data);
