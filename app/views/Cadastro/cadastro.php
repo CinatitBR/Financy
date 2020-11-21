@@ -49,6 +49,10 @@
             Já tem uma conta? <a href="#">Entrar</a>
           </p>
         </div>
+
+        <?php
+          var_dump($data['users']) 
+        ?> 
       
         <h1 class="form-title">Cadastre-se.</h1>
       

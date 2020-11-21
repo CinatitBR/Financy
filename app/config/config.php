@@ -1,11 +1,5 @@
 <?php
 
-  // Database connection
-  $host = 'localhost';
-  $user = 'root';
-  $password = '';
-  $dbName = 'gestor_financeiro';
-
   // APPROOT (app root folder)
   define('APPROOT', dirname(dirname(__FILE__)));
 
