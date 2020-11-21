@@ -4,7 +4,7 @@
   define('APPROOT', dirname(dirname(__FILE__)));
 
   // URLROOT (root folder)
-  define('URLROOT', 'pw1/Financy');
+  define('URLROOT', 'http://localhost/pw1/Financy');
 
   // SITENAME
   define('SITENAME', 'Financy');

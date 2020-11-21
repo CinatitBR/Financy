@@ -9,8 +9,6 @@
 
     <div class="wrapper">
 
-      <?php var_dump($data); var_dump(URLROOT); ?> 
-      
       <form method="POST" action="<?php echo './cadastro/register' ?>" class="form">
         <div class="form-info__wrapper">
           <p class="form-info">
