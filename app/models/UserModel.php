@@ -29,8 +29,10 @@
         VALUES ('$username', '$email', '$password', NOW())
       ";
 
+      $result = $this->query($sql);
+
       // If the query was successful
-      if($this->query($sql)) {
+      if($result) {
         return true;
       }
       else {
