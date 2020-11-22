@@ -19,10 +19,6 @@
     }
 
     public function query($sql) {
-      if (!$this->conn->query($sql)) {
-        echo "Error description: " . $this->conn->error;
-      }
-
       return $this->conn->query($sql);
     }
 
