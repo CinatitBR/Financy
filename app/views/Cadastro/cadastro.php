@@ -23,7 +23,7 @@
       <div class="field-list">
 
         <div class="item">
-          <label for="name">Como você gostaria de ser chamado?</label>
+          <label for="username">Como você gostaria de ser chamado?</label>
           <input 
             type="text" 
             name="username" 
