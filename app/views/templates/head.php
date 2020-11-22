@@ -28,4 +28,4 @@
 ></script>
 <!-- CSS -->
 <link rel="stylesheet" href="<?php echo URLROOT ?>/public/global.css" />
-<title>Financy - <?php echo $data['title']; ?></title>
+<title>Financy - <?php echo $data['pageTitle']; ?></title>

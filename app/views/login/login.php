@@ -33,7 +33,7 @@
 
         <div class="item">
           <label for="password">Digite sua senha:</label>
-          <input type="password" name="password" id="password" maxlength="255" required />
+          <input type="password" name="password" id="password" maxlength="255" minlength="6" required />
 
           <div class="invalid-feedback">
             <?php echo $data['passwordError']; ?>
