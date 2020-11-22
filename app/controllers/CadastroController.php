@@ -9,7 +9,7 @@
 
     public function index() {
       $data = [
-        'pageTitle' => 'Cadastro',
+        'title' => 'Cadastro',
         'username' => '',
         'email' => '',
         'password' => '',
