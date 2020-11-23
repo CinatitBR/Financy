@@ -7,8 +7,6 @@
 </head>
 <body>
 
-  <?php var_dump($_SESSION) ?>
-
   <?php require APPROOT . '/views/templates/header.php' ?>
 
   <div class="wrapper">
