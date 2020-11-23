@@ -67,7 +67,7 @@
       // Get params
       $this->params = $url ? array_values($url) : [];
 
-      // Call controller with params
+      // Call the controller with params
       $this->controller->{ $this->method }( $this->params );
     }
 
