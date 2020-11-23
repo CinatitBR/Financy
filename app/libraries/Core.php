@@ -1,6 +1,6 @@
 <?php
   class Core {
-    protected $controllerName = 'CadastroController';
+    protected $controllerName;
     protected $method = 'index';
     protected $params = [];
     
@@ -9,18 +9,29 @@
     function start() {
       $url = [];
 
-      // If the URL exists
-      if (isset($_GET['url'])) { 
+      // If the URL parameter doesn't exist
+      if (!isset($_GET['url'])) {
+        $url[0] = "painel";
+      }
+      else {
         $url = $_GET['url'];
+      }
+      
+      // If the URL parameter exists
+      // if (isset($_GET['url'])) { 
+        // $url = $_GET['url'];
 
         // Create array with the url parameters
         $url = explode('/', $url);
 
-        // If the user is logged in
+        // Redirection logic
         if (isLoggedIn()) {
           if ($url[0] === "cadastro" || $url[0] === "login") {
             header("Location:" . URLROOT . '/painel');
           }
+        }
+        elseif ($url[0] === "painel") {
+          header("Location:" . URLROOT . '/login');
         }
 
         // Get the controller name, converting first letter to uppercase
@@ -33,7 +44,7 @@
           echo 'Page not found.';
           exit();
         }
-      }
+      // }
 
       // Require contoller
       require_once '../app/controllers/' . $this->controllerName . '.php';
