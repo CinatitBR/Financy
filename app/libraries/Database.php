@@ -18,6 +18,7 @@
       }
     }
 
+    // Query database
     public function query($sql) {
       return $this->conn->query($sql);
     }
@@ -25,5 +26,10 @@
     // Fetch rows and return the result-set as an associative array
     public function resultSet($result) {
       return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Fetch a single row
+    public function single($result) {
+      return $row = $result->fetch_assoc();
     }
   }

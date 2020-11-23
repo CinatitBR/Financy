@@ -29,7 +29,7 @@ body {
   min-width: 230px; /* Avoid page overflowing */
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0.05em;
-  background: url('./images/background.svg');
+  background: url('../images/background.svg');
   background-size: cover;
 }
 

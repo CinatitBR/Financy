@@ -59,7 +59,9 @@
           $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
           // Register user using model function
-          if($this->userModel->register($data)) {
+          if($this->userModel->register(
+            $data['username'], $data['email'], $data['password']
+          )) {
             // Redirect to login page
             header('Location: ' . URLROOT . '/login');
           } 

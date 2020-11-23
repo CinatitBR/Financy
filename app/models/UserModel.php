@@ -11,7 +11,7 @@
 
       $result = $this->query($sql);
 
-      // If the email is not already taken
+      // If the email is already taken
       if($result->num_rows > 0) { 
         return true;
       }
@@ -21,8 +21,7 @@
     }
 
     // Register user
-    public function register($data) {
-      extract($data);
+    public function register($username, $email, $password) {
 
       $sql = "
         INSERT INTO user (username, email, password, created_at)
@@ -34,6 +33,27 @@
       // If the query was successful
       if($result) {
         return true;
+      }
+      else {
+        return false;
+      }
+    }
+
+    // Login user
+    public function login($email, $password) {
+      $sql = "
+        SELECT * FROM user
+        WHERE email = '$email'
+      ";
+
+      $result = $this->query($sql);
+      $user_row = $this->single($result);
+
+      $hashedPassword = $user_row['password'];
+
+      // Verify password
+      if (password_verify($password, $hashedPassword)) {
+        return $user_row;
       }
       else {
         return false;

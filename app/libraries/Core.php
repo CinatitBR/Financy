@@ -9,12 +9,19 @@
     function start() {
       $url = [];
 
-      // If URL exists
-      if(isset($_GET['url'])) {
+      // If the URL exists
+      if (isset($_GET['url'])) { 
         $url = $_GET['url'];
 
         // Create array with the url parameters
         $url = explode('/', $url);
+
+        // If the user is logged in
+        if (isLoggedIn()) {
+          if ($url[0] === "cadastro" || $url[0] === "login") {
+            header("Location:" . URLROOT . '/painel');
+          }
+        }
 
         // Get the controller name, converting first letter to uppercase
         $this->controllerName = ucwords($url[0]) . 'Controller';
@@ -31,17 +38,17 @@
       // Require contoller
       require_once '../app/controllers/' . $this->controllerName . '.php';
 
-      // Create controller
+      // Creates controller
       $this->controller = new $this->controllerName;
 
-      // If "method" parameter exists
-      if(isset($url[1])) {
+      // If the parameter "method" exists
+      if (isset($url[1])) {
 
         // Set method
         $this->method = $url[1];
 
         // If method doesn't exist inside controller
-        if(!method_exists($this->controller, $this->method)) {
+        if (!method_exists($this->controller, $this->method)) {
           $this->method = 'index';
         }
 

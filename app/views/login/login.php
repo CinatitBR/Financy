@@ -7,14 +7,16 @@
 </head>
 <body>
 
+  <?php var_dump($_SESSION) ?>
+
   <?php require APPROOT . '/views/templates/header.php' ?>
 
   <div class="wrapper">
 
-    <form class="form" method="POST" action="<? echo URLROOT ?>/painel">
+    <form class="form" method="POST" action="<?php echo URLROOT; ?>/login">
       <div class="form-info__wrapper">
         <p class="form-info">
-          Ainda não tem uma conta? <a href="<?php echo URLROOT ?>/cadastro">Cadastrar</a>
+          Ainda não tem uma conta? <a href="<?php echo URLROOT; ?>/cadastro">Cadastrar</a>
         </p>
       </div>
 
@@ -24,18 +26,33 @@
 
         <div class="item">
           <label for="email">Digite seu email:</label>
-          <input type="email" name="email" id="email" maxlength="254" required />
+          <input 
+            type="email" 
+            name="email"
+            value="<?php echo $data['email']; ?>" 
+            id="email" 
+            maxlength="254" 
+            required
+          />
 
-          <div class="invalid-feedback">
+          <div class="invalid-feedback" style="display: block;">
             <?php echo $data['emailError']; ?>
           </div>
         </div>
 
         <div class="item">
           <label for="password">Digite sua senha:</label>
-          <input type="password" name="password" id="password" maxlength="255" minlength="6" required />
+          <input 
+            type="password" 
+            name="password" 
+            value="<?php echo $data['password']; ?>" 
+            id="password" 
+            maxlength="255" 
+            minlength="6" 
+            required 
+          />
 
-          <div class="invalid-feedback">
+          <div class="invalid-feedback" style="display: block;">
             <?php echo $data['passwordError']; ?>
           </div>
         </div>

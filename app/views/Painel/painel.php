@@ -2,11 +2,13 @@
 <html lang="pt-BR">
 <head>
   
-  <link rel="stylesheet" href="<?php echo APPROOT . '/views/painel/painel.css' ?>">
+  <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/painel.css' ?>">
   <?php require APPROOT . '/views/templates/head.php' ?>
 
 </head>
 <body>
+
+  <?php var_dump($_SESSION) ?>
 
   <header class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -16,12 +18,15 @@
           <li class="nav-item active">
             <a class="nav-link" href="#">Painel</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="<?php echo URLROOT; ?>/painel/logout">Sair</a>
+          </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item user-profile">
             <a class="nav-link" href="#">
-              <img src="../../images/user-profile.svg" alt="perfil">
+              <img src="<?php echo URLROOT ?>/public/images/user-profile.svg" alt="perfil">
             </a>
           </li>
         </ul>
