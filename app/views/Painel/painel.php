@@ -195,11 +195,13 @@
 
               <div class="item">
                 <label for="inputContaNome">Digite o nome da sua conta:</label>
-                <input type="text" name="conta" id="inputContaNome">
+
+                <input type="text" name="conta" id="inputContaNome" required>
               </div>
   
               <div class="item">
                 <label for="inputValor">Digite o valor inicial da sua conta:</label>
+
                 <div class="input-group">
                   <div class="input-group-prepend currency-symbol__wrapper">
                     <span class="input-group-text currency-symbol">R$</span>
@@ -212,6 +214,7 @@
                     step="0.01"
                     id="inputValor"
                     style="width: initial;"
+                    required
                   >
                 </div>
               </div>
@@ -262,6 +265,7 @@
 
               <div class="item">
                 <label for="categoriaOption">Selecione a categoria do seu ganho:</label>
+
                 <select name="categoria" class="form-control" id="categoriaOption">
                   <option value="Salário">Salário</option>
                   <option value="Poupança">Poupança</option>
@@ -270,6 +274,7 @@
   
               <div class="item">
                 <label for="inputValor">Digite o valor do seu ganho:</label>
+
                 <div class="input-group">
                   <div class="input-group-prepend currency-symbol__wrapper">
                     <span class="input-group-text currency-symbol">R$</span>
@@ -282,6 +287,7 @@
                     step="0.01"
                     id="inputValor"
                     style="width: initial;"
+                    required
                   >
                 </div>
               </div>
@@ -334,6 +340,7 @@
 
               <div class="item">
                 <label for="categoriaOption">Selecione a categoria da sua despesa:</label>
+
                 <select name="categoria" class="form-control" id="categoriaOption">
                   <option value="Comida">Comida</option>
                   <option value="Educação">Educação</option>
@@ -343,6 +350,7 @@
   
               <div class="item">
                 <label for="inputValor">Digite o valor da sua despesa:</label>
+
                 <div class="input-group">
                   <div class="input-group-prepend currency-symbol__wrapper">
                     <span class="input-group-text currency-symbol">R$</span>
@@ -355,6 +363,7 @@
                     step="0.01"
                     id="inputValor"
                     style="width: initial;"
+                    required
                   >
                 </div>
               </div>
@@ -380,6 +389,8 @@
       </div>
     </div>
   </div>
+
+  
 
 </body>
 </html>
