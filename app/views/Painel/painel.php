@@ -204,9 +204,6 @@
                 <label for="inputValor">Digite o valor inicial da sua conta:</label>
 
                 <div class="input-group">
-                  <div class="input-group-prepend currency-symbol__wrapper">
-                    <span class="input-group-text currency-symbol">R$</span>
-                  </div>
                   <input 
                     type="text" 
                     class="form-control money" 
@@ -276,9 +273,6 @@
                 <label for="inputValor">Digite o valor do seu ganho:</label>
 
                 <div class="input-group">
-                  <div class="input-group-prepend currency-symbol__wrapper">
-                    <span class="input-group-text currency-symbol">R$</span>
-                  </div>
                   <input 
                     type="text" 
                     class="form-control money" 
@@ -351,9 +345,6 @@
                 <label for="inputValor">Digite o valor da sua despesa:</label>
 
                 <div class="input-group">
-                  <div class="input-group-prepend currency-symbol__wrapper">
-                    <span class="input-group-text currency-symbol">R$</span>
-                  </div>
                   <input 
                     type="text" 
                     class="form-control money" 
