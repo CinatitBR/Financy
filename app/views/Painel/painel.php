@@ -40,11 +40,11 @@
 
         </ul>
 
-        <ul class="navbar-nav ml-auto mr-3">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown user-profile__wrapper">
 
             <a 
-              class="nav-link" 
+              class="nav-link user-profile__link" 
               id="navbarDropdown" 
               role="button" 
               data-toggle="dropdown" 
