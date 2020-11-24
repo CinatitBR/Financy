@@ -10,7 +10,7 @@
 
   <header>
     <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#"><h1>Financy</h1></a>
+      <a class="navbar-brand" href="<?php echo URLROOT; ?>"><h1>Financy</h1></a>
 
       <button 
         class="navbar-toggler" 
