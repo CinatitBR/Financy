@@ -11,18 +11,39 @@ header .navbar-brand h1 {
 }
 
 header .nav-item {
-  color: var(--white);
-  font-weight: 500;
-  font-size: 20px;
   background: var(--purple);
+  margin-right: 25px;
   border-radius: 15px;
   width: fit-content;
 }
 
-header .user-profile {
+header .nav-item .nav-link {
+  color: var(--white);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+header .user-profile__wrapper {
+  background: none;
+}
+
+header .user-profile__img {
+  background: var(--purple);
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  padding-top: 3px;
+}
+
+header .dropdown-item {
+  font-weight: bold;
+  color: var(--black);
+}
+
+header .dropdown-item:focus,
+header .dropdown-item:hover {
+  background: var(--red);
+  color: var(--white);
 }
 
 /* Menu list */
@@ -172,11 +193,11 @@ header .user-profile {
 /* Modal */
 
 .modal-open {
-  padding:0 !important;
+  padding: 0 !important;
   overflow-y: auto;
 }
 
-.modal-content {
+.modal .modal-content {
   background-color: var(--black);
   border: none;
   border-radius: var(--border-radius);

@@ -2,34 +2,70 @@
 <html lang="pt-BR">
 <head>
   
-  <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/painel.css' ?>">
+  <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/painel.css?version=51' ?>">
   <?php require APPROOT . '/views/templates/head.php' ?>
 
 </head>
 <body>
 
-  <?php var_dump($_SESSION) ?>
-
-  <header class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark">
+  <header>
+    <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="#"><h1>Financy</h1></a>
 
-        <ul class="navbar-nav">
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-toggle="collapse" 
+        data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto">
+
           <li class="nav-item active">
-            <a class="nav-link" href="#">Painel</a>
+            <a 
+              class="nav-link" 
+              href="<?php echo URLROOT; ?>/painel"
+            >
+                Painel 
+                <span class="sr-only">(current)</span>
+            </a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/painel/logout">Sair</a>
+
+        </ul>
+
+        <ul class="navbar-nav ml-auto mr-3">
+          <li class="nav-item dropdown user-profile__wrapper">
+
+            <a 
+              class="nav-link" 
+              id="navbarDropdown" 
+              role="button" 
+              data-toggle="dropdown" 
+              aria-haspopup="true" 
+              aria-expanded="false"
+            >
+              <img 
+                class="user-profile__img" 
+                src="<?php echo URLROOT ?>/public/images/user-profile.svg" 
+                alt="perfil"
+              >
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<?php echo URLROOT; ?>/painel/logout">Sair</a>
+            </div>
+
           </li>
         </ul>
 
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item user-profile">
-            <a class="nav-link" href="#">
-              <img src="<?php echo URLROOT ?>/public/images/user-profile.svg" alt="perfil">
-            </a>
-          </li>
-        </ul>
+      </div>
     </nav>
   </header>
 
@@ -40,7 +76,6 @@
       <div class="menu-balance menu">
 
         <a href="#" class="menu-content">R$ 1500,05</a>
-
         <div class="menu-title"><h3>Seu saldo</h3></div>
 
       </div>
