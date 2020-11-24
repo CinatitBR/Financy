@@ -233,10 +233,11 @@ header .dropdown-item:hover {
   font-size: 25px;
 }
 
-  /* Real currency symbol  */
-.real-symbol {
-  color: var(--grey);
+/* Currency symbol */
+
+.currency-symbol__wrapper .currency-symbol {
   background-color: var(--black);
+  color: var(--grey);
   border: 2px solid var(--dark-grey);
   border-radius: var(--border-radius);
 }
