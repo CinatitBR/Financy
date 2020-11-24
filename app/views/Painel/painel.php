@@ -3,6 +3,7 @@
 <head>
   
   <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/painel.css?version=51' ?>">
+  <script src="<?php echo URLROOT; ?>/public/libraries/vanilla-masker.min.js"></script>
   <?php require APPROOT . '/views/templates/head.php' ?>
 
 </head>
@@ -207,9 +208,8 @@
                     <span class="input-group-text currency-symbol">R$</span>
                   </div>
                   <input 
-                    type="number" 
-                    value="0.00"
-                    class="form-control" 
+                    type="text" 
+                    class="form-control money" 
                     aria-label="Amount (to the nearest dollar)" 
                     step="0.01"
                     id="inputValor"
@@ -280,9 +280,8 @@
                     <span class="input-group-text currency-symbol">R$</span>
                   </div>
                   <input 
-                    type="number" 
-                    value="0.00"
-                    class="form-control" 
+                    type="text" 
+                    class="form-control money" 
                     aria-label="Amount (to the nearest dollar)" 
                     step="0.01"
                     id="inputValor"
@@ -356,9 +355,8 @@
                     <span class="input-group-text currency-symbol">R$</span>
                   </div>
                   <input 
-                    type="number" 
-                    value="0.00"
-                    class="form-control" 
+                    type="text" 
+                    class="form-control money" 
                     aria-label="Amount (to the nearest dollar)" 
                     step="0.01"
                     id="inputValor"
@@ -390,7 +388,14 @@
     </div>
   </div>
 
-  
+  <script>
+    VMasker(document.querySelectorAll(".money")).maskMoney({
+      precision: 2, 
+      separator: ',',
+      delimiter: '.',
+      unit: 'R$',
+    });
+  </script>
 
 </body>
 </html>
