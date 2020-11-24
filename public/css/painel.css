@@ -10,7 +10,7 @@ header .navbar-brand h1 {
   color: var(--purple);
 }
 
-header .nav-item {
+header .links .nav-item {
   background: var(--purple);
   margin-left: 30px;
   margin-right: 25px;
@@ -18,7 +18,11 @@ header .nav-item {
   width: fit-content;
 }
 
-header .nav-item .nav-link {
+header .links .nav-item:hover {
+  background: #785abd;
+}
+
+header .links .nav-link {
   color: var(--white);
   font-weight: 500;
   font-size: 20px;
