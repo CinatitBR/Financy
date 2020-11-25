@@ -35,8 +35,8 @@
         if(empty($data['username'])) {
           $data['usernameError'] = "Por favor, digite o nome que você quer ser chamado.";
         } 
-        elseif(!preg_match($nameValidation, $data['username'])) {
-          $data['usernameError'] = "O nome só pode conter letras, números, acentos e espaços.";
+        elseif (!preg_match($nameValidation, $data['username'])) {
+          $data['usernameError'] = "O nome só pode conter letras, números, acentos, espaços e underlines.";
         }
 
         // Validate email
