@@ -58,7 +58,7 @@
         $data['value'] = preg_replace("/[,]/", '.', $data['value']);
         // If the value is not numeric
         if (!is_numeric($data['value'])) {
-          $data['errors'][] = "O valor da conta não é valido. Por favor, tente novamente.";
+          $data['errors'][] = "O valor inicial da conta não é valido. Por favor, tente novamente.";
         }
 
         // If there are no errors
