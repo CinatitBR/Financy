@@ -30,6 +30,7 @@
         "title" => "Painel",
         "accountName" => "",
         "value" => 0,
+        "success" => "Conta adicionada com sucesso!",
         "errors" => []
       ];
 
