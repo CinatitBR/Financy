@@ -74,6 +74,7 @@
 
     <div class="menu-list">
       
+      <!-- Menu Balance -->
       <div class="menu-balance menu">
 
         <a href="#" class="menu-content">R$ 1500,05</a>
@@ -81,55 +82,38 @@
 
       </div>
 
+      <!-- Menu transaction -->
       <div class="menu-transaction menu">
         
         <div class="wrapper-content">
 
-          <!-- Tooltip ganho -->
-          <a 
-            href="#" 
-            data-toggle="tooltip"
-            data-placement="top" 
-            title="Adicionar ganho"
+          <!-- Modal ganho -->
+          <a
+            href="#"
+            class="menu-content plus-icon__wrapper" 
+            data-toggle="modal" 
+            data-target="#addEarnTransaction"
           >
-            <!-- Modal -->
-            <span
-              href="#" 
-              class="menu-content plus-icon__wrapper" 
-              data-toggle="modal" 
-              data-target="#addEarnTransaction"
-            >
-
-              <!-- Plus icon -->
-              <svg class="icon plus-icon" height="30px" viewBox="0 0 469.33333 469.33333" width="30px" xmlns="http://www.w3.org/2000/svg">
-                <g fill="#363A41">
-                  <path class="icon plus-icon" d="m437.332031 192h-405.332031c-17.664062 0-32 14.335938-32 32v21.332031c0 17.664063 14.335938 32 32 32h405.332031c17.664063 0 32-14.335937 32-32v-21.332031c0-17.664062-14.335937-32-32-32zm0 0"/>
-                  <path class="icon plus-icon" d="m192 32v405.332031c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-405.332031c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32zm0 0"/>
-                </g>
-              </svg>
-
-            </span>
+            <!-- Plus icon -->
+            <svg class="icon plus-icon" height="30px" viewBox="0 0 469.33333 469.33333" width="30px" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#363A41">
+                <path class="icon plus-icon" d="m437.332031 192h-405.332031c-17.664062 0-32 14.335938-32 32v21.332031c0 17.664063 14.335938 32 32 32h405.332031c17.664063 0 32-14.335937 32-32v-21.332031c0-17.664062-14.335937-32-32-32zm0 0"/>
+                <path class="icon plus-icon" d="m192 32v405.332031c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-405.332031c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32zm0 0"/>
+              </g>
+            </svg>
           </a>
 
-          <!-- Tooltip despesa -->
+          <!-- Modal despesa -->
           <a 
-            href="#" 
-            data-toggle="tooltip" 
-            data-placement="top" 
-            title="Adicionar despesa"
+            href="#"
+            class="menu-content minus-icon__wrapper" 
+            data-toggle="modal" 
+            data-target="#addExpenseTransaction"
           >
-            <!-- Modal -->
-            <span 
-              href="#" 
-              class="menu-content minus-icon__wrapper" 
-              data-toggle="modal" 
-              data-target="#addExpenseTransaction"
-            >
-              <!-- Minus icon -->
-              <svg class="icon minus-icon" height="469pt" viewBox="0 -192 469.33333 469" width="469pt" fill="#363A41" xmlns="http://www.w3.org/2000/svg">
-                <path d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0"/>
-              </svg>
-            </span>
+            <!-- Minus icon -->
+            <svg class="icon minus-icon" height="469pt" viewBox="0 -192 469.33333 469" width="469pt" fill="#363A41" xmlns="http://www.w3.org/2000/svg">
+              <path d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0"/>
+            </svg>
           </a>
 
         </div>
@@ -247,7 +231,7 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <h5 class="modal-title" style="color: var(--green);">Adicionar um ganho</h5>
+          <h5 class="modal-title" style="color: var(--green);">Adicionar ganho</h5>
           
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
