@@ -172,7 +172,7 @@
           </button>
         </div>
 
-        <form action="#">
+        <form action="<?php echo URLROOT; ?>/painel/addAccount" method="POST" >
 
           <div class="modal-body">
 
@@ -181,7 +181,7 @@
               <div class="item">
                 <label for="inputContaNome">Digite o nome da sua conta:</label>
 
-                <input type="text" name="conta" id="inputContaNome" required>
+                <input type="text" name="accountName" id="inputContaNome" required>
               </div>
   
               <div class="item">
@@ -191,6 +191,7 @@
                   <input 
                     type="text" 
                     class="form-control money" 
+                    name="value"
                     aria-label="Amount (to the nearest dollar)" 
                     step="0.01"
                     id="inputValor"
