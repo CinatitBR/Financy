@@ -27,6 +27,7 @@
     
     public function addAccount() {
       $data = [
+        "title" => "Painel",
         "accountName" => "",
         "value" => 0,
         "errors" => []
