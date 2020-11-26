@@ -11,7 +11,7 @@
 
     public function index() {
       $data = [
-        "title" => "Painel"
+        "title" => "Painel",
       ];
 
       $this->view('painel', $data);
@@ -74,11 +74,8 @@
           // Tries to insert account into database, and returns result
           $result = $this->accountModel->addAccount($data['accountName'], $data['value'], $user_id);
 
-          // If the account was inserted
-          if ($result) {
-            header("Location:" . URLROOT . "/painel");
-          }
-          else {
+          // If there was an error at the insertion
+          if (!$result) {
             exit("Erro ao adicionar conta ao banco de dados.");
           }
         }

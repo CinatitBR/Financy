@@ -80,20 +80,21 @@
       }
 
       echo sprintf('
-        <div class="alert alert-danger alert-dismissible fade in">
+        <div class="alert alert-danger alert-dismissible">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           %s
         </div>', 
         $message
       );
     } 
-    else {
+    elseif (!empty($data['success'])) {
       echo sprintf('
-        <div class="alert alert-success alert-dismissible fade in">
+        <div class="alert alert-success alert-dismissible">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           %s
-        </div>
-      ', $data['success'])
+        </div>', 
+        $data['success']
+      );
     }
   ?>
 
