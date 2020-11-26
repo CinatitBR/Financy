@@ -113,7 +113,7 @@ header .navbar-brand {
 }
 
 .form-info a:hover::before {
-  width: 80%;
+  width: 100%;
 }
 
 /* Form title */

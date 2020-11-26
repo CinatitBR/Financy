@@ -152,7 +152,10 @@
 
       <div class="menu-wallet menu">
 
-        <a href="#" class="menu-content wallet-icon__wrapper" data-toggle="modal" data-target="#addAccount">
+        <a 
+          href="<?php echo URLROOT ?>/addAccount" 
+          class="menu-content wallet-icon__wrapper" 
+        >
           <!-- Wallet icon -->
           <svg class="icon wallet-icon" fill="#363A41" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             width="890.5px" height="890.5px" viewBox="0 0 890.5 890.5" style="enable-background:new 0 0 890.5 890.5;" xml:space="preserve"
