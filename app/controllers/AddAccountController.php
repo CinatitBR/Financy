@@ -10,6 +10,7 @@
       $data = [
         "title" => "Adicionar conta",
         "accountName" => "",
+        "valueText" => "",
         "value" => 0,
         "success" => "",
         "accountNameError" => "",
@@ -18,10 +19,12 @@
       ];
 
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
         // Sanitize user data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
+        
         $data['accountName'] = trim($_POST['accountName']);
+        $data['valueText'] = trim($_POST['value']);
         $data['value'] = trim($_POST['value']);
 
         // Replace multiple spaces with a single space

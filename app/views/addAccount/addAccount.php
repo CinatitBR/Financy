@@ -8,9 +8,21 @@
 </head>
 <body>
   
+  <?php 
+    if (!empty($data['success'])) {
+      echo sprintf('
+        <div class="alert alert-success alert-dismissible">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          %s
+        </div>', 
+        $data['success']
+      );
+    }
+  ?>
+
   <div class="wrapper">
 
-    <form class="form" method="POST" action="<?php echo URLROOT; ?>/cadastro" >
+    <form class="form" method="POST" action="<?php echo URLROOT; ?>/addAccount" >
       <div class="form-info__wrapper">
         <p class="form-info">
           <a href="<?php echo URLROOT ?>/painel">Voltar ao painel</a>
@@ -55,7 +67,7 @@
 
       </div>
 
-      <button type="submit" class="form-button">Avançar</button>
+      <button type="submit" class="form-button">Adicionar</button>
     </form>
 
   </div>
