@@ -16,4 +16,21 @@
       }
     }
 
+    public function findAccountByName($accountName) {
+      $sql = "
+        SELECT * FROM account
+        WHERE account_name = '$accountName';
+      ";
+
+      $result = $this->query($sql);
+
+      // If the account name already exists
+      if ($result->num_rows > 0) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
   }

@@ -54,6 +54,10 @@
         elseif (!preg_match($accountValidation, $data['accountName'])) {
           $data["errors"][] = "O nome da conta só pode conter letras, números, acentos, espaços e underlines.";
         }
+        // If the account name already exists
+        elseif ($this->accountModel->findAccountByName($data['accountName'])) {
+          $data['errors'][] = "Essa conta já existe. Por favor, insira outro nome.";
+        }
 
         // Gets account value
         $data['value'] = preg_replace("/[R$\s\.]/", '', $data['value']);
@@ -82,7 +86,10 @@
 
         $this->view('painel', $data);
       }
-
+      // If the request is not a POST
+      else {
+        $this->view('NotFound', $data);
+      }
     }
 
   }

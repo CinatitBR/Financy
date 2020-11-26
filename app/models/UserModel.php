@@ -12,7 +12,7 @@
       $result = $this->query($sql);
 
       // If the email is already taken
-      if($result->num_rows > 0) { 
+      if ($result->num_rows > 0) { 
         return true;
       }
       else {
