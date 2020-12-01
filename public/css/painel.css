@@ -32,6 +32,10 @@ header .user-profile__wrapper {
   background: none;
 }
 
+header .user-profile__link {
+  text-align: center;
+}
+
 header .user-profile__img {
   background: var(--purple);
   width: 50px;
@@ -39,6 +43,12 @@ header .user-profile__img {
   border-radius: 50%;
   padding-top: 5px;
   display: border;
+}
+
+header .user-profile__username {
+  font-size: 18px;
+  color: var(--white);
+  margin-top: 4px;
 }
 
 header .user-profile__link:active img {

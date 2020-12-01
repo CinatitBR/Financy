@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   
-  <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/painel.css?version=51' ?>">
+  <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/painel.css' ?>">
   <script src="<?php echo URLROOT; ?>/public/libraries/vanilla-masker.min.js"></script>
   <?php require APPROOT . '/views/templates/head.php' ?>
 
@@ -10,7 +10,7 @@
 <body>
 
   <header>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="<?php echo URLROOT; ?>"><h1>Financy</h1></a>
 
       <button 
@@ -57,6 +57,7 @@
                 src="<?php echo URLROOT ?>/public/images/user-profile.svg" 
                 alt="perfil"
               >
+              <h3 class="user-profile__username"><?php echo $_SESSION['username'] ?></h3>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
