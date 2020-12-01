@@ -33,4 +33,16 @@
       }
     }
 
+    public function getAccounts($user_id) {
+      $sql = "
+        SELECT account_name FROM account
+        WHERE user_id = $user_id;
+      ";
+
+      $result = $this->query($sql);
+      $result = $this->resultSet($result);
+
+      return $result;
+    }
+
   }
