@@ -151,6 +151,7 @@
 
       </div>
 
+      <!-- Menu wallet -->
       <div class="menu-wallet menu">
 
         <a 
