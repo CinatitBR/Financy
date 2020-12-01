@@ -33,48 +33,64 @@
 
       <div class="field-list">
 
-      <div class="item">
-        <label for="accountOption">Selecione a conta relacionada:</label>
+        <div class="item">
+          <label for="accountOption">Conta</label>
 
-        <select name="account_id" id="accountOption">
-          <?php 
-            foreach ($data["accounts"] as $account) {
-              echo sprintf(
-                '<option value="%d">%s</option>', 
-                $account['account_id'], $account['account_name']
-              );
-            }
-          ?>
-        </select>
-      </div>
+          <select name="account_id" id="accountOption">
+            <?php 
+              foreach ($data["accounts"] as $account) {
+                echo sprintf(
+                  '<option value="%d">%s</option>', 
+                  $account['account_id'], $account['account_name']
+                );
+              }
+            ?>
+          </select>
+        </div>
 
-      <div class="item">
-        <label for="categoryOption">Selecione a categoria da sua despesa:</label>
+        <div class="item">
+          <label for="categoryOption">Categoria</label>
 
-        <select name="category" id="categoryOption">
-          <?php 
-            foreach ($data["categories"] as $category) {
-              echo sprintf(
-                '<option value="%d">%s</option>', 
-                $category['category_id'], $category['category']
-              );
-            }
-          ?>
-        </select>
-      </div>
+          <select name="category_id" id="categoryOption">
+            <?php 
+              foreach ($data["categories"] as $category) {
+                echo sprintf(
+                  '<option value="%d">%s</option>', 
+                  $category['category_id'], $category['category']
+                );
+              }
+            ?>
+          </select>
+        </div>
 
-      <div class="item">
-        <label for="inputValue">Digite o valor da sua despesa:</label>
+        <div class="item">
+          <label for="inputValue">Valor</label>
 
-        <input 
-          type="text" 
-          class="money" 
-          aria-label="Amount (to the nearest dollar)" 
-          step="0.01"
-          id="inputValue"
-          required
-        >
-      </div>
+          <input 
+            type="text" 
+            class="money" 
+            name="value"
+            aria-label="Amount (to the nearest dollar)" 
+            step="0.01"
+            id="inputValue"
+            required
+          >
+        </div>
+
+        <div class="item">
+          <label for="statusOption">Status</label>
+
+          <select name="status_id">
+            <option value="2">Concluido</option>
+            <option value="1">Pendente</option>
+          </select>
+        </div>
+
+        <div class="item">
+          <label for="description">Descricao (opcional)</label>
+
+          <textarea name="description" id="description" rows="10"></textarea>
+        </div>
 
       </div>
 
