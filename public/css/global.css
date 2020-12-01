@@ -160,7 +160,8 @@ header .navbar-brand {
 
 .field-list .item input,
 .field-list .item select,
-.field-list .item option {
+.field-list .item option,
+.field-list .item textarea {
   width: 100%;
   outline: none;
   border: none;
