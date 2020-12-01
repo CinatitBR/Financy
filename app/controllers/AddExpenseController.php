@@ -24,14 +24,15 @@
 
       $user_id = $_SESSION['user_id'];
       $data["accounts"] = $this->accountModel->getAccounts($user_id);
-      $data["categories"] = $this->categoryModel->getCategories($user_id);
+      $data["categories"] = $this->categoryModel->getCategories("S", $user_id);
 
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        
+
         $data['account_id'] = $_POST['account_id'];
         $data['category_id'] = $_POST['category_id'];
         $data['value'] = $_POST['value'];
         $data['status_id'] = $_POST['status_id'];
+        $data['description'] = trim($_POST['description']);
 
         // Validates value
         $data["value"] = preg_replace("/[R$\s\.]/", '', $data['value']);
