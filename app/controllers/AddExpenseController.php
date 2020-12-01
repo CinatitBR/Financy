@@ -12,8 +12,7 @@
         "accounts" => []
       ];
 
-      $accounts = $this->accountModel->getAccounts($_SESSION['user_id']);
-      $data["accounts"] = $accounts;
+      $data["accounts"] = $this->accountModel->getAccounts($_SESSION['user_id']);
 
       $this->view("addExpense", $data);
     }
