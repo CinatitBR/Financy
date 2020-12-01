@@ -7,6 +7,8 @@
 
 </head>
 <body>
+
+  <?php require APPROOT . '/views/templates/header.php' ?>
   
   <?php 
     if (!empty($data['success'])) {
@@ -62,7 +64,7 @@
             ?>
           </select>
         </div>
-
+        
         <div class="item">
           <label for="inputValue">Valor</label>
 
@@ -75,6 +77,10 @@
             id="inputValue"
             required
           >
+
+          <div class="invalid-feedback" style="display: block;">
+            <?php echo $data['valueError']; ?>
+          </div>
         </div>
 
         <div class="item">
@@ -89,7 +95,7 @@
         <div class="item">
           <label for="description">Descricao (opcional)</label>
 
-          <textarea name="description" id="description" rows="10"></textarea>
+          <textarea name="description" id="description" rows="5"></textarea>
         </div>
 
       </div>
