@@ -27,5 +27,5 @@
   defer
 ></script>
 <!-- CSS -->
-<link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/global.css?version=51" />
+<link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/global.css" />
 <title>Financy - <?php echo $data['title']; ?></title>
