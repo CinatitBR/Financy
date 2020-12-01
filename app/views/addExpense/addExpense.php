@@ -49,29 +49,31 @@
       </div>
 
       <div class="item">
-        <label for="categoriaOption">Selecione a categoria da sua despesa:</label>
+        <label for="categoryOption">Selecione a categoria da sua despesa:</label>
 
-        <select name="categoria" class="form-control" id="categoriaOption">
-          <option value="Comida">Comida</option>
-          <option value="Educação">Educação</option>
-          <option value="Veículo">Veículo</option>
+        <select name="category" id="categoryOption">
+          <?php 
+            foreach ($data["categories"] as $category) {
+              echo sprintf(
+                '<option value="%d">%s</option>', 
+                $category['category_id'], $category['category']
+              );
+            }
+          ?>
         </select>
       </div>
 
       <div class="item">
-        <label for="inputValor">Digite o valor da sua despesa:</label>
+        <label for="inputValue">Digite o valor da sua despesa:</label>
 
-        <div class="input-group">
-          <input 
-            type="text" 
-            class="form-control money" 
-            aria-label="Amount (to the nearest dollar)" 
-            step="0.01"
-            id="inputValor"
-            style="width: initial;"
-            required
-          >
-        </div>
+        <input 
+          type="text" 
+          class="money" 
+          aria-label="Amount (to the nearest dollar)" 
+          step="0.01"
+          id="inputValue"
+          required
+        >
       </div>
 
       </div>
