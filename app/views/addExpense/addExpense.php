@@ -37,9 +37,14 @@
         <label for="accountOption">Selecione a conta relacionada:</label>
 
         <select name="account_id" id="accountOption">
-          <option value="1">Conta 1</option>
-          <option value="2">Conta 2</option>
-          <option value="3">Conta 3</option>
+          <?php 
+            foreach ($data["accounts"] as $account) {
+              echo sprintf(
+                '<option value="%d">%s</option>', 
+                $account['account_id'], $account['account_name']
+              );
+            }
+          ?>
         </select>
       </div>
 
