@@ -187,9 +187,6 @@
 
   <!-- MODALS -->
 
-  <!-- Adicionar conta - Modal -->
-  <?php require APPROOT . "/views/painel/modalAddAccount.php" ?>
-
   <!-- Modal - Adicionar ganho -->
   <div 
     class="modal fade" 
