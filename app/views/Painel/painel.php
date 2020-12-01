@@ -134,10 +134,8 @@
 
           <!-- Modal despesa -->
           <a 
-            href="#"
+            href="<?php echo URLROOT ?>/addExpense"
             class="menu-content minus-icon__wrapper" 
-            data-toggle="modal" 
-            data-target="#addExpenseTransaction"
           >
             <!-- Minus icon -->
             <svg class="icon minus-icon" height="469pt" viewBox="0 -192 469.33333 469" width="469pt" fill="#363A41" xmlns="http://www.w3.org/2000/svg">
