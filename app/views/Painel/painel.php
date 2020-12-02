@@ -71,34 +71,6 @@
     </nav>
   </header>
 
-  <?php 
-    // If there are errors 
-    if (!empty($data["errors"])) {
-      $message = "";
-
-      foreach ($data["errors"] as $error) {
-        $message .= $error . "<br>";
-      }
-
-      echo sprintf('
-        <div class="alert alert-danger alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          %s
-        </div>', 
-        $message
-      );
-    } 
-    elseif (!empty($data['success'])) {
-      echo sprintf('
-        <div class="alert alert-success alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          %s
-        </div>', 
-        $data['success']
-      );
-    }
-  ?>
-
   <div class="wrapper">
 
     <div class="menu-list">
