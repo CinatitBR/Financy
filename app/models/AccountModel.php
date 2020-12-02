@@ -35,7 +35,8 @@
 
     public function getAccounts($user_id) {
       $sql = "
-        SELECT account_id, account_name FROM account
+        SELECT account_id, account_name, balance
+        FROM account
         WHERE user_id = $user_id;
       ";
 

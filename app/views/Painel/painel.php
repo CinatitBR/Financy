@@ -3,8 +3,14 @@
 <head>
   
   <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/painel.css' ?>">
-  <script src="<?php echo URLROOT; ?>/public/libraries/vanilla-masker.min.js"></script>
-  <?php require APPROOT . '/views/templates/head.php' ?>
+
+  <script 
+    src="<?php echo URLROOT . '/public/scripts/painel.js' ?>" 
+    defer
+  >
+  </script>
+
+  <?php require APPROOT . '/views/templates/head.php'; ?>
 
 </head>
 <body>
@@ -78,11 +84,9 @@
       <!-- Menu Balance -->
       <div class="menu-balance menu">
 
-        <select id="balanceAccount">
-          <option value="teste">Teste</option>
-        </select>
+        <select id="selectAccount"></select>
 
-        <a href="#" class="menu-content">R$ 1500,05</a>
+        <a href="<?php echo URLROOT ?>/painel" class="menu-content">R$</a>
         <div class="menu-title"><h3>Seu saldo</h3></div>
 
       </div>
