@@ -146,8 +146,22 @@ header .dropdown-item:hover {
   flex-basis: 100%;
 }
 
-.menu-balance .menu-title {
-  font-size: 25px;
+.menu-balance select {
+  margin-bottom: 20px;
+  margin-right: auto;
+  width: 180px;
+  border: 3px solid var(--white);
+  border-radius: var(--border-radius);
+  background: var(--white);
+  padding: 5px 10px;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--black);
+}
+
+.menu-balance select:focus {
+  transition: border 0.5s;
+  border: 3px solid var(--blue);
 }
 
 .menu-balance .menu-content {
@@ -156,6 +170,10 @@ header .dropdown-item:hover {
   font-weight: bold;
   font-size: 40px;
   text-decoration: none;
+}
+
+.menu-balance .menu-title {
+  font-size: 25px;
 }
 
 .menu-balance .menu-content:hover {

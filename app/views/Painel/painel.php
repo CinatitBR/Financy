@@ -78,6 +78,10 @@
       <!-- Menu Balance -->
       <div class="menu-balance menu">
 
+        <select id="balanceAccount">
+          <option value="teste">Teste</option>
+        </select>
+
         <a href="#" class="menu-content">R$ 1500,05</a>
         <div class="menu-title"><h3>Seu saldo</h3></div>
 
@@ -227,87 +231,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Modal - Adicinar despesa -->
-  <div 
-    class="modal fade" 
-    id="addExpenseTransaction" 
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h5 class="modal-title" style="color: var(--red)">
-            Adicionar despesa
-          </h5>
-          
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <form action="#">
-
-          <div class="modal-body">
-
-            <div class="field-list">
-
-              <div class="item">
-                <label for="categoriaOption">Selecione a categoria da sua despesa:</label>
-
-                <select name="categoria" class="form-control" id="categoriaOption">
-                  <option value="Comida">Comida</option>
-                  <option value="Educação">Educação</option>
-                  <option value="Veículo">Veículo</option>
-                </select>
-              </div>
-  
-              <div class="item">
-                <label for="inputValor">Digite o valor da sua despesa:</label>
-
-                <div class="input-group">
-                  <input 
-                    type="text" 
-                    class="form-control money" 
-                    aria-label="Amount (to the nearest dollar)" 
-                    step="0.01"
-                    id="inputValor"
-                    style="width: initial;"
-                    required
-                  >
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="modal-footer">
-            <button 
-              type="button" 
-              class="btn btn-secondary" 
-              data-dismiss="modal"
-            >
-              Fechar
-            </button>
-
-            <button type="submit" class="btn btn-primary">Adicionar</button>
-          </div>
-
-        </form>
-
-      </div>
-    </div>
-  </div>
-
-  <script>
-    VMasker(document.querySelectorAll(".money")).maskMoney({
-      precision: 2, 
-      separator: ',',
-      delimiter: '.',
-      unit: 'R$',
-    });
-  </script>
 
 </body>
 </html>
