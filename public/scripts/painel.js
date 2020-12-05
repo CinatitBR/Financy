@@ -1,35 +1,52 @@
-const selectAccount = document.querySelector("#selectAccount");
-const menuContent = document.querySelector(".menu-balance .menu-content");
+const selectAccount = document.querySelector('#selectAccount');
+const alertSelect = document.querySelector('#alertSelect');
 
 const url = `http://localhost/financy/addAccount/getAccounts`;
 
-fetch(url)
-  .then(response => {
-    return response.json();
-  })
+fetchAccounts(url)
   .then(accounts => { 
-    populateSelect(accounts);
+    populateSelect(accounts, selectAccount, alertSelect);
   })
   .then(() => {
-    showBalance();
+    selectAccount.addEventListener('change', showBalance);
+
+    // Force the event to trigger
+    const event = new Event('change');
+    selectAccount.dispatchEvent(event);
   })
   .catch(error => console.log(error));
 
-selectAccount.addEventListener('change', showBalance);
+function fetchAccounts(url) {
+  return fetch(url)
+    .then(response => {
+      return response.json();
+    })
+    .catch(error => console.log(error));
+}
 
-function populateSelect(accounts) {
+function populateSelect(accounts, select, alertSelect) {
+  // If there are no accounts
+  if (accounts.length === 0) {
+    select.style.display = 'none';
+    alertSelect.style.display = 'block';
+
+    return;
+  }
+
   for (account of accounts) {
     const option = document.createElement("option");
 
     option.value = account.balance;
     option.innerText = account.account_name;
 
-    selectAccount.appendChild(option);
+    select.appendChild(option);
   }
 }
 
-function showBalance() {
-  const balance = selectAccount.value;
+function showBalance(event) {
+  const menuContent = document.querySelector('.menu-balance .menu-content');
+
+  const balance = event.target.value;
 
   menuContent.innerText = `R$ ${balance}`;
 }

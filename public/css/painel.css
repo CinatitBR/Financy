@@ -149,7 +149,6 @@ header .dropdown-item:hover {
 .menu-balance select {
   margin-bottom: 20px;
   margin-right: auto;
-  width: 180px;
   border: 3px solid var(--white);
   border-radius: var(--border-radius);
   background: var(--white);
@@ -162,6 +161,17 @@ header .dropdown-item:hover {
 .menu-balance select:focus {
   transition: border 0.5s;
   border: 3px solid var(--blue);
+}
+
+.menu-balance #alertSelect {
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--red);
+
+  display: none;
 }
 
 .menu-balance .menu-content {
