@@ -87,7 +87,7 @@
         <select id="selectAccount"></select>
         <span id="alertSelect">Você ainda não tem uma conta</span>
 
-        <span class="menu-content" style="cursor: pointer;">R$</a>
+        <span class="menu-content">R$</span>
         <div class="menu-title"><h3>Seu saldo</h3></div>
 
       </div>
@@ -98,8 +98,7 @@
         <div class="wrapper-content">
 
           <!-- Modal ganho -->
-          <a
-            href="#"
+          <span
             class="menu-content plus-icon__wrapper" 
             data-toggle="modal" 
             data-target="#addEarnTransaction"
@@ -111,7 +110,7 @@
                 <path class="icon plus-icon" d="m192 32v405.332031c0 17.664063 14.335938 32 32 32h21.332031c17.664063 0 32-14.335937 32-32v-405.332031c0-17.664062-14.335937-32-32-32h-21.332031c-17.664062 0-32 14.335938-32 32zm0 0"/>
               </g>
             </svg>
-          </a>
+          </span>
 
           <!-- Modal despesa -->
           <a 
@@ -177,7 +176,9 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <h5 class="modal-title" style="color: var(--green);">Adicionar ganho</h5>
+          <h5 class="modal-title" style="color: var(--green);">
+            Adicionar ganho
+          </h5>
           
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -191,47 +192,71 @@
             <div class="field-list">
 
               <div class="item">
-                <label for="categoriaOption">Selecione a categoria do seu ganho:</label>
+                <label for="accountOption">Conta</label>
 
-                <select name="categoria" class="form-control" id="categoriaOption">
-                  <option value="Salário">Salário</option>
-                  <option value="Poupança">Poupança</option>
+                <select name="account_id" id="accountOption">
+                  <option value="teste">Teste</option>
                 </select>
               </div>
-  
-              <div class="item">
-                <label for="inputValor">Digite o valor do seu ganho:</label>
 
-                <div class="input-group">
-                  <input 
-                    type="text" 
-                    class="form-control money" 
-                    aria-label="Amount (to the nearest dollar)" 
-                    step="0.01"
-                    id="inputValor"
-                    style="width: initial;"
-                    required
-                  >
-                </div>
+              <div class="item">
+                <label for="categoryOption">Categoria</label>
+
+                <select name="category_id" id="categoryOption">
+                  <option value="categoria">Categoria option</option>
+                </select>
+              </div>
+          
+              <div class="item">
+                <label for="inputValue">Valor</label>
+
+                <input 
+                  type="text" 
+                  class="money" 
+                  name="value"
+                  aria-label="Amount (to the nearest dollar)" 
+                  step="0.01"
+                  id="inputValue"
+                  required
+                >
+
+                <!-- <div class="invalid-feedback" style="display: block;">
+                  
+                </div> -->
+              </div>
+
+              <div class="item">
+                <label for="statusOption">Status</label>
+
+                <select name="status_id">
+                  <option value="2">Concluido</option>
+                  <option value="1">Pendente</option>
+                </select>
+              </div>
+
+              <div class="item">
+                <label for="description">Descrição (opcional)</label>
+
+                <textarea name="description" id="description" rows="5"></textarea>
               </div>
 
             </div>
 
           </div>
 
-          <div class="modal-footer">
-            <button 
-              type="button" 
-              class="btn btn-secondary" 
-              data-dismiss="modal"
-            >
-              Fechar
-            </button>
-
-            <button type="submit" class="btn btn-primary">Adicionar</button>
-          </div>
-
         </form>
+
+        <div class="modal-footer">
+          <button 
+            type="button" 
+            class="btn btn-secondary" 
+            data-dismiss="modal"
+          >
+            Fechar
+          </button>
+
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
 
       </div>
     </div>

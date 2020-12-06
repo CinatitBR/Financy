@@ -101,6 +101,7 @@ header .dropdown-item:hover {
   padding: 15px;
   width: fit-content;
   border: 3px solid transparent;
+  cursor: pointer;
   transition: border 300ms ease, color 300ms ease;
 
   display: grid;
