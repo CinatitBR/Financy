@@ -2,9 +2,11 @@
 
   class CadastroController extends Controller {
     private $userModel;
+    private $categoryModel;
 
     public function __construct() {
       $this->userModel = $this->model('UserModel');
+      $this->categoryModel = $this->model('CategoryModel');
     }
 
     public function index() {
@@ -14,7 +16,11 @@
         'email' => '',
         'password' => '',
         'usernameError' => '',
-        'emailError' => ''
+        'emailError' => '',
+        'categories' => [
+          ['category' => 'Salário', 'flow' => 'E'],
+          ['category' => 'Educação', 'flow' => 'S']
+        ]
       ];
 
       // Checks whether server has received a POST request 
@@ -58,10 +64,18 @@
           // Hash the password
           $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-          // Register user using model function
-          if($this->userModel->register(
-            $data['username'], $data['email'], $data['password']
-          )) {
+          // Register user and get user_id
+          $user_id = $this->userModel->register($data['username'], $data['email'], $data['password']);
+
+          // If the user was not registered
+          if (!$user_id) {
+            die('Não foi possível registrar o usuário, algo deu errado.');
+          } 
+          
+          // Insert default categories
+          $result = $this->categoryModel->addCategories($data['categories'], $user_id);
+
+          if ($result) {
             // Redirect to login page
             header('Location: ' . URLROOT . '/login');
           } 

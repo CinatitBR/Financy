@@ -25,14 +25,15 @@
 
       $sql = "
         INSERT INTO user (username, email, password, created_at)
-        VALUES ('$username', '$email', '$password', NOW())
+        VALUES ('$username', '$email', '$password', NOW());
       ";
 
       $result = $this->query($sql);
 
-      // If the query was successful
-      if($result) {
-        return true;
+      // If the query was successful, return user_id
+      if ($result) {
+        $user_id = $this->lastInsertedId();
+        return $user_id;
       }
       else {
         return false;
@@ -59,5 +60,4 @@
         return false;
       }
     }
-
   }

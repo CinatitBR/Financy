@@ -11,8 +11,9 @@
     // Initialize database connection
     public function __construct() {
       $this->conn = new mysqli($this->host, $this->user, $this->password, $this->dbName);
+      $this->conn->set_charset("utf8");
 
-      if($this->conn->connect_errno) {
+      if ($this->conn->connect_errno) {
         echo("Connection failed: :" . $mysqli->connect_error);
         exit();
       }
@@ -30,6 +31,11 @@
 
     // Fetch a single row
     public function single($result) {
-      return $row = $result->fetch_assoc();
+      return $result->fetch_assoc();
+    }
+
+    // Get last inserted ID
+    public function lastInsertedId() {
+      return $this->conn->insert_id;
     }
   }

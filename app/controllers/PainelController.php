@@ -13,7 +13,7 @@
       $data = [
         "title" => "Painel",
       ];
-
+      
       $this->view('painel', $data);
     }
 

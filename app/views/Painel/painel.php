@@ -87,7 +87,7 @@
         <select id="selectAccount"></select>
         <span id="alertSelect">Você ainda não tem uma conta</span>
 
-        <a href="<?php echo URLROOT ?>/painel" class="menu-content">R$</a>
+        <span class="menu-content" style="cursor: pointer;">R$</a>
         <div class="menu-title"><h3>Seu saldo</h3></div>
 
       </div>
