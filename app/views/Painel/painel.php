@@ -5,7 +5,8 @@
   <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/painel.css' ?>">
 
   <script 
-    src="<?php echo URLROOT . '/public/scripts/painel.js' ?>" 
+    type="module"
+    src="<?php echo URLROOT . '/public/js/painel/index.js' ?>" 
     defer
   >
   </script>
