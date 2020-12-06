@@ -3,10 +3,12 @@
   class CadastroController extends Controller {
     private $userModel;
     private $categoryModel;
+    private $accountModel;
 
     public function __construct() {
       $this->userModel = $this->model('UserModel');
       $this->categoryModel = $this->model('CategoryModel');
+      $this->accountModel = $this->model('AccountModel');
     }
 
     public function index() {
@@ -17,9 +19,13 @@
         'password' => '',
         'usernameError' => '',
         'emailError' => '',
-        'categories' => [
+        'defaultCategories' => [
           ['category' => 'Salário', 'flow' => 'E'],
           ['category' => 'Educação', 'flow' => 'S']
+        ],
+        'defaultAccounts' => [
+          ['account' => 'Cartão de crédito', 'balance' => 00.00],
+          ['account' => 'Conta corrente', 'balance' => 00.00]
         ]
       ];
 
@@ -72,10 +78,11 @@
             die('Não foi possível registrar o usuário, algo deu errado.');
           } 
           
-          // Insert default categories
-          $result = $this->categoryModel->addCategories($data['categories'], $user_id);
+          // Insert default categories and accounts
+          $resultCategories = $this->categoryModel->addCategories($data['defaultCategories'], $user_id);
+          $resultAccounts = $this->accountModel->addAccounts($data['defaultAccounts'], $user_id);
 
-          if ($result) {
+          if ($resultCategories && $resultAccounts) {
             // Redirect to login page
             header('Location: ' . URLROOT . '/login');
           } 

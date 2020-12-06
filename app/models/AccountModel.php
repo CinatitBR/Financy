@@ -46,4 +46,23 @@
       return $result;
     }
 
+    public function addAccounts($accounts, $user_id) {
+      foreach ($accounts as $account) {
+        $account_name = $account['account'];
+        $balance = $account['balance'];
+
+        $sql = "
+          INSERT INTO account (account_name, balance, user_id)
+          VALUES ('$account_name', $balance, $user_id)
+        ";
+
+        $result = $this->query($sql);
+
+        if (!$result) {
+          return false;
+        }
+      }
+      return true;
+    }
+
   }
