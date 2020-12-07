@@ -22,14 +22,14 @@
             <div class="item">
               <label for="accountAddEarn">Conta</label>
 
-              <select class="selectAccount" name="account_id" id="accountAddEarn">
+              <select class="accountSelect" name="account_id" id="accountAddEarn">
               </select>
             </div>
 
             <div class="item">
               <label for="categoryAddEarn">Categoria</label>
 
-              <select class="selectCategory" name="category_id" id="categoryAddEarn">
+              <select class="categorySelect" name="category_id" id="categoryAddEarn">
               </select>
             </div>
         

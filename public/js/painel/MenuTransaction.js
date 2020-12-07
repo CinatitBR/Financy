@@ -1,16 +1,15 @@
 export default function MenuTransaction(modalElement) {
 
-  const selectAccount = modalElement.querySelector('.selectAccount');
-  const selectCategory = modalElement.querySelector('.selectCategory');
-  const formElement = modalElement.querySelector('form');
-  const flow = formElement.dataset.flow;
+  async function fetchContent(url) {
+    const response = await fetch(url);
 
-  const urlAccounts = `http://localhost/financy/addAccount/getAccounts`;
-  const urlCategories = `http://localhost/financy/category/getCategories/${flow}`;
+    // Handle fetch errors
+    if (!response.ok) {
+      const message = `An error has occured: ${response.status}`;
+      throw new Error(message);
+    }
 
-  function fetchAccounts(urlAccounts) {
-    return fetch(urlAccounts)
-      .then(response => response.json())
+    return await response.json();
   }
 
   function populateSelect(accounts, select) {
@@ -22,11 +21,6 @@ export default function MenuTransaction(modalElement) {
   
       select.appendChild(option);
     }
-  }
-
-  function fetchCategories(urlCategories) {
-    return fetch(urlCategories)
-      .then(response => response.json())
   }
 
   function populateSelectCategory(categories, select) {
@@ -55,25 +49,40 @@ export default function MenuTransaction(modalElement) {
     }
 
     const message = await response.json();
-    console.log(message);
+    return message;
   }
 
-  fetchAccounts(urlAccounts)
-    .then(accounts => populateSelect(accounts, selectAccount))
-    .catch(error => console.log(error));
-  
-  fetchCategories(urlCategories)
-    .then(categories => populateSelectCategory(categories, selectCategory))
-    .catch(error => console.log(error));
-  
-  formElement.addEventListener('submit', (event) => {
+  async function handleSubmit(event) {
     event.preventDefault();
-    
-    const formData = new FormData(event.target);
 
     const flow = event.target.dataset.flow;
+    
+    const formData = new FormData(event.target);
     formData.append('flow', flow);
 
-    sendData(formData);
-  });
+    const message = await sendData(formData);
+    
+    console.log(message);
+  } 
+
+  async function init(modalElement) {
+    const formElement = modalElement.querySelector('form'); 
+
+    const accountSelect = formElement.querySelector('.accountSelect');
+    const categorySelect = formElement.querySelector('.categorySelect');
+    const flow = formElement.dataset.flow;
+
+    const urlAccounts = `http://localhost/financy/addAccount/getAccounts`;
+    const urlCategories = `http://localhost/financy/category/getCategories/${flow}`;
+
+    const accounts = await fetchContent(urlAccounts);
+    const categories = await fetchContent(urlCategories);
+
+    populateSelect(accounts, accountSelect);
+    populateSelectCategory(categories, categorySelect);
+
+    formElement.addEventListener('submit', handleSubmit);
+  }
+
+  init(modalElement);
 }
