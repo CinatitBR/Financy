@@ -12,7 +12,7 @@ export default function MenuTransaction(modalElement) {
     return await response.json();
   }
 
-  function populateSelect(accounts, select) {
+  function populateAccountSelect(accounts, select) {
     for (const account of accounts) {
       const option = document.createElement("option");
   
@@ -23,7 +23,7 @@ export default function MenuTransaction(modalElement) {
     }
   }
 
-  function populateSelectCategory(categories, select) {
+  function populateCategorySelect(categories, select) {
     for (const category of categories) {
       const option = document.createElement("option");
   
@@ -78,8 +78,8 @@ export default function MenuTransaction(modalElement) {
     const accounts = await fetchContent(urlAccounts);
     const categories = await fetchContent(urlCategories);
 
-    populateSelect(accounts, accountSelect);
-    populateSelectCategory(categories, categorySelect);
+    populateAccountSelect(accounts, accountSelect);
+    populateCategorySelect(categories, categorySelect);
 
     formElement.addEventListener('submit', handleSubmit);
   }
