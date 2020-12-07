@@ -48,21 +48,38 @@ export default function MenuTransaction(modalElement) {
       throw new Error(message);
     }
 
-    const message = await response.json();
-    return message;
+    const feedbacks = await response.json();
+
+    return feedbacks;
+  }
+
+  function showFeedbacks(formElement, feedbacks) {
+    for (const feedback of feedbacks) {
+      const feedbackElement = formElement.querySelector(`.${feedback.element}`);
+      const message = feedback.message;
+
+      if (feedback.element === 'success') {
+        formElement.reset();
+      }
+
+      feedbackElement.innerText = message;
+      feedbackElement.style.display = 'block';
+    }
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const flow = event.target.dataset.flow;
+    const formElement = event.target;
+
+    const formData = new FormData(formElement);
+    const flow = formElement.dataset.flow;
     
-    const formData = new FormData(event.target);
     formData.append('flow', flow);
 
-    const message = await sendFormData(formData);
-    
-    console.log(message);
+    const feedbacks = await sendFormData(formData);
+
+    showFeedbacks(formElement, feedbacks);
   } 
 
   async function init(modalElement) {

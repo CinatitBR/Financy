@@ -14,12 +14,13 @@
         "value" => 0,
         "description" => "",
         "flow" => "",
-        "user_id" => 0,
+        "user_id" => 0
+      ];
 
-        "valueError" => "",
+      $feedbackErrors = [];
 
-        "success" => "Pagamento adicionado com sucesso!",
-        "databaseError" => "Erro ao adicionar pagamento. Por favor, tente novamente."
+      $feedbackSuccess = [
+        ['element' => 'success', 'message' => 'Transação adicionada com sucesso!']
       ];
 
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -40,29 +41,34 @@
 
         // If the value is not numeric
         if (!is_numeric($data['value'])) {
-          $data['valueError'] = "Este valor não é válido. Por favor, tente novamente.";
+          $feedbackErrors[] = [
+            'element' => 'valueError', 
+            'message' => 'Este valor não é válido. Por favor, tente novamente.'
+          ];
         }
 
         // If there are no errors
-        if (empty($data['valueError'])) {
-          $message = ['success' => $data['success']];
+        if (empty($feedbackErrors)) {
 
           // Add payment to database
           $result = $this->paymentModel->add($data);
 
-          // If the payment was added successfully
-          if ($result) {
-            echo json_encode($message, JSON_UNESCAPED_UNICODE);
-          } 
-          else {
-            $message = ['databaseError' => $data['databaseError']];
-            echo json_encode($message, JSON_UNESCAPED_UNICODE);
+          // If the payment was not added
+          if (!$result) {
+            $feedbackErrors[] = [
+              'element' => 'databaseError',
+              'message' => "Erro ao adicionar pagamento. Por favor, tente novamente."
+            ];
+
+            echo json_encode($feedbackErrors, JSON_UNESCAPED_UNICODE);
+            return;
           }
+
+          // If the payment was added successfully
+          echo json_encode($feedbackSuccess, JSON_UNESCAPED_UNICODE);
         } 
         else {
-          $message = ['valueError' => $data['valueError']];
-
-          echo json_encode($message, JSON_UNESCAPED_UNICODE);
+          echo json_encode($feedbackErrors, JSON_UNESCAPED_UNICODE);
         }
       }
     }

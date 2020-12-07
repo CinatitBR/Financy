@@ -17,6 +17,8 @@
 
       <form action="#" data-flow="E">
         <div class="modal-body">
+          <div class="success valid-feedback"></div>
+
           <div class="field-list">
 
             <div class="item">
