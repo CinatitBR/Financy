@@ -30,7 +30,7 @@
       ];
 
       // Checks whether server has received a POST request 
-      if($_SERVER['REQUEST_METHOD'] === 'POST') {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Sanitize user data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 

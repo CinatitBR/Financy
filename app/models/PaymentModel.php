@@ -1,24 +1,19 @@
 <?php 
   class PaymentModel extends Database {
 
-    public function addExpense(
-      $value, 
-      $description, 
-      $user_id, 
-      $account_id, 
-      $category_id, 
-      $status_id
-    ) {
+    public function add($data) {
+      extract($data);
 
       $sql = "";
       $result = "";
 
-      // If the transaction is completed
+      // If the transaction has a "completed" status
       if ($status_id == 2) {
+        $signal = $flow === "E" ? "+" : "-";
 
         $sql = "
           UPDATE account
-          SET balance = balance - $value
+          SET balance = balance $signal $value
           WHERE account_id = $account_id
         ";
 

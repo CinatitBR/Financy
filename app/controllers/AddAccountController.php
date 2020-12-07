@@ -80,8 +80,8 @@
     public function getAccounts() {
       $user_id = $_SESSION['user_id'];
 
-      $result = $this->accountModel->getAccounts($user_id);
-      echo json_encode($result);
+      $accounts = $this->accountModel->getAccounts($user_id);
+      echo json_encode($accounts, JSON_UNESCAPED_UNICODE);
     }
 
   }

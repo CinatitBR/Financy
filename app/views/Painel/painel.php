@@ -8,8 +8,12 @@
     type="module"
     src="<?php echo URLROOT . '/public/js/painel/index.js' ?>" 
     defer
-  >
-  </script>
+  ></script>
+
+  <script 
+    src="<?php echo URLROOT . '/public/js/vendor/vanilla-masker.min.js' ?>"
+    defer
+  ></script>
 
   <?php require APPROOT . '/views/templates/head.php'; ?>
 
@@ -102,7 +106,7 @@
           <span
             class="menu-content plus-icon__wrapper" 
             data-toggle="modal" 
-            data-target="#addEarnTransaction"
+            data-target="#modalAddEarn"
           >
             <!-- Plus icon -->
             <svg class="icon plus-icon" height="30px" viewBox="0 0 469.33333 469.33333" width="30px" xmlns="http://www.w3.org/2000/svg">
@@ -169,99 +173,7 @@
   <!-- MODALS -->
 
   <!-- Modal - Adicionar ganho -->
-  <div 
-    class="modal fade" 
-    id="addEarnTransaction" 
-  >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h5 class="modal-title" style="color: var(--green);">
-            Adicionar ganho
-          </h5>
-          
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-
-        <form action="#">
-
-          <div class="modal-body">
-
-            <div class="field-list">
-
-              <div class="item">
-                <label for="accountOption">Conta</label>
-
-                <select name="account_id" id="accountOption">
-                  <option value="teste">Teste</option>
-                </select>
-              </div>
-
-              <div class="item">
-                <label for="categoryOption">Categoria</label>
-
-                <select name="category_id" id="categoryOption">
-                  <option value="categoria">Categoria option</option>
-                </select>
-              </div>
-          
-              <div class="item">
-                <label for="inputValue">Valor</label>
-
-                <input 
-                  type="text" 
-                  class="money" 
-                  name="value"
-                  aria-label="Amount (to the nearest dollar)" 
-                  step="0.01"
-                  id="inputValue"
-                  required
-                >
-
-                <!-- <div class="invalid-feedback" style="display: block;">
-                  
-                </div> -->
-              </div>
-
-              <div class="item">
-                <label for="statusOption">Status</label>
-
-                <select name="status_id">
-                  <option value="2">Concluido</option>
-                  <option value="1">Pendente</option>
-                </select>
-              </div>
-
-              <div class="item">
-                <label for="description">Descrição (opcional)</label>
-
-                <textarea name="description" id="description" rows="5"></textarea>
-              </div>
-
-            </div>
-
-          </div>
-
-        </form>
-
-        <div class="modal-footer">
-          <button 
-            type="button" 
-            class="btn btn-secondary" 
-            data-dismiss="modal"
-          >
-            Fechar
-          </button>
-
-          <button type="submit" class="btn btn-primary">Adicionar</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
+  <?php require APPROOT . '/views/painel/modalAddEarn.php'; ?>
 
 </body>
 </html>
