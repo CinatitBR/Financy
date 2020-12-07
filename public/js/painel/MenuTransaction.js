@@ -34,7 +34,7 @@ export default function MenuTransaction(modalElement) {
     }
   }
 
-  async function sendData(formData) {
+  async function sendFormData(formData) {
     const url = `http://localhost/financy/transaction/create`;
 
     const response = await fetch(url, { 
@@ -60,7 +60,7 @@ export default function MenuTransaction(modalElement) {
     const formData = new FormData(event.target);
     formData.append('flow', flow);
 
-    const message = await sendData(formData);
+    const message = await sendFormData(formData);
     
     console.log(message);
   } 
