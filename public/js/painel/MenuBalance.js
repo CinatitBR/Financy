@@ -1,24 +1,26 @@
 export default function MenuBalance(menuBalance) {
 
-  const elementSelect = menuBalance.querySelector('#selectAccount');
-  const url = `http://localhost/financy/addAccount/getAccounts`;
+  async function fetchContent(url) {
+    const response = await fetch(url);
 
-  function fetchAccounts(url) {
-    return fetch(url)
-      .then(response => {
-        return response.json();
-      })
+     // Handle fetch errors
+    if (!response.ok) {
+      const message = `An error has occured: ${response.status}`;
+      throw new Error(message);
+    }
+
+    return await response.json();
   }
 
   // Populate select with accounts
-  function populateSelect(accounts, elementSelect) {
+  function populateAccountSelect(accounts, accountSelect) {
     for (const account of accounts) {
       const option = document.createElement("option");
   
       option.value = account.balance;
       option.innerText = account.account_name;
   
-      elementSelect.appendChild(option);
+      accountSelect.appendChild(option);
     }
   }
 
@@ -30,16 +32,21 @@ export default function MenuBalance(menuBalance) {
     menuContent.innerText = `R$ ${balance}`;
   }
 
-  elementSelect.addEventListener('change', showBalance);
+  async function init(menuBalance) {
+    const accountSelect = menuBalance.querySelector('#accountSelect');
+    const urlAccounts = `http://localhost/financy/addAccount/getAccounts`;
+    const changeEvent = new Event('change');
+    
+    const accounts = await fetchContent(urlAccounts);
 
-  // Populate the select and fires showBalance event
-  fetchAccounts(url)
-    .then(accounts => populateSelect(accounts, elementSelect))
-    .then(() => {
-      // Force the event to trigger
-      const event = new Event('change');
+    populateAccountSelect(accounts, accountSelect);
 
-      elementSelect.dispatchEvent(event);
-    })
-    .catch(error => console.log(error));
+    // Add change event
+    accountSelect.addEventListener('change', showBalance);
+
+    // Force the event to trigger
+    accountSelect.dispatchEvent(changeEvent);
+  }
+
+  init(menuBalance);
 }
