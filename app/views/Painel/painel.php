@@ -118,20 +118,20 @@
           </span>
 
           <!-- Modal despesa -->
-          <a 
-            href="<?php echo URLROOT ?>/addExpense"
+          <span 
             class="menu-content minus-icon__wrapper" 
+            data-toggle="modal" 
+            data-target="#modalAddExpense"
           >
             <!-- Minus icon -->
             <svg class="icon minus-icon" height="469pt" viewBox="0 -192 469.33333 469" width="469pt" fill="#363A41" xmlns="http://www.w3.org/2000/svg">
               <path d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0"/>
             </svg>
-          </a>
+          </span>
 
         </div>
 
         <div class="menu-title"><h3>Adicionar transação</h3></div>
-
       </div>
 
       <!-- Menu wallet -->
@@ -172,8 +172,11 @@
 
   <!-- MODALS -->
 
-  <!-- Modal - Adicionar ganho -->
+  <!-- Adicionar ganho -->
   <?php require APPROOT . '/views/painel/modalAddEarn.php'; ?>
+
+  <!-- Adicionar despesa -->
+  <?php require APPROOT . '/views/painel/modalAddExpense.php'; ?>
 
 </body>
 </html>
