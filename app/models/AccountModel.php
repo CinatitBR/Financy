@@ -1,10 +1,12 @@
 <?php 
   class AccountModel extends Database {
 
-    public function addAccount($accountName, $value, $user_id) {
+    public function addAccount($data) {
+      extract($data);
+
       $sql = "
         INSERT INTO account (account_name, balance, user_id)
-        VALUES ('$accountName', $value, $user_id);
+        VALUES ('$account_name', $value, $user_id);
       ";
       
       // If the query is succesfull

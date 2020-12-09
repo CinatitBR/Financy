@@ -66,6 +66,7 @@
 
           // If the payment was added successfully
           echo json_encode($feedbackSuccess, JSON_UNESCAPED_UNICODE);
+          return;
         } 
         else {
           echo json_encode($feedbackErrors, JSON_UNESCAPED_UNICODE);

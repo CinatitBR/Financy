@@ -34,7 +34,7 @@ export default function MenuBalance(menuBalance) {
 
   async function init(menuBalance) {
     const accountSelect = menuBalance.querySelector('#accountSelect');
-    const urlAccounts = `http://localhost/financy/addAccount/getAccounts`;
+    const urlAccounts = `http://localhost/financy/account/getAccounts`;
     const changeEvent = new Event('change');
     
     const accounts = await fetchContent(urlAccounts);

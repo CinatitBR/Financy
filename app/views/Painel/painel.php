@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
   
+  <?php require APPROOT . '/views/templates/head.php'; ?>
+
   <link rel="stylesheet" href="<?php echo URLROOT . '/public/css/painel.css' ?>">
 
   <script 
@@ -14,8 +16,6 @@
     src="<?php echo URLROOT . '/public/js/vendor/vanilla-masker.min.js' ?>"
     defer
   ></script>
-
-  <?php require APPROOT . '/views/templates/head.php'; ?>
 
 </head>
 <body>
@@ -137,9 +137,10 @@
       <!-- Menu wallet -->
       <div class="menu-wallet menu">
 
-        <a 
-          href="<?php echo URLROOT ?>/addAccount" 
+        <span 
           class="menu-content wallet-icon__wrapper" 
+          data-toggle="modal"
+          data-target="#modalAddAccount"
         >
           <!-- Wallet icon -->
           <svg class="icon wallet-icon" fill="#363A41" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -160,7 +161,7 @@
                 c13.8,0,25,11.199,25,25V552.36L646.8,552.36z"/>
             </g>
           </svg>
-        </a>
+        </span>
 
         <div class="menu-title"><h3>Adicionar conta</h3></div>
 
@@ -177,6 +178,9 @@
 
   <!-- Adicionar despesa -->
   <?php require APPROOT . '/views/painel/modalAddExpense.php'; ?>
+
+  <!-- Adicionar conta -->
+  <?php require APPROOT . '/views/painel/modalAddAccount.php' ?>
 
 </body>
 </html>

@@ -32,7 +32,7 @@
                 required 
               />
 
-              <div class="nameError invalid-feedback"></div>
+              <div class="account_nameError invalid-feedback"></div>
             </div>
 
             <div class="item">

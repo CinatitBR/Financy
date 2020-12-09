@@ -49,7 +49,6 @@ export default function MenuTransaction(modalElement) {
     }
 
     const feedbacks = await response.json();
-
     return feedbacks;
   }
 
@@ -89,7 +88,7 @@ export default function MenuTransaction(modalElement) {
     const categorySelect = formElement.querySelector('.categorySelect');
     const flow = formElement.dataset.flow;
 
-    const urlAccounts = `http://localhost/financy/addAccount/getAccounts`;
+    const urlAccounts = `http://localhost/financy/account/getAccounts`;
     const urlCategories = `http://localhost/financy/category/getCategories/${flow}`;
 
     const accounts = await fetchContent(urlAccounts);
