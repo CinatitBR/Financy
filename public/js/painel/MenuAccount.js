@@ -33,7 +33,6 @@ export default function MenuAccount(menuElement) {
     }
   }
 
-  // Reset feedback from form input
   function getInputElements(formElement) {
     const fields = formElement.querySelectorAll('.field-list .item');
     let inputElements = [];
@@ -45,6 +44,7 @@ export default function MenuAccount(menuElement) {
     return inputElements;
   }
 
+  // Hide feedback on clicking the input
   function hideFeedbackOnClick(inputElements) {
     for (const input of inputElements) {
       const feedbackElement = input.nextElementSibling;

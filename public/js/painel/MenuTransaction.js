@@ -66,19 +66,40 @@ export default function MenuTransaction(modalElement) {
     }
   }
 
+  function getInputElements(formElement) {
+    const fields = formElement.querySelectorAll('.field-list .item');
+    let inputElements = [];
+
+    for (const field of fields) {
+      inputElements.push(field.children[1]);
+    }
+
+    return inputElements;
+  }
+
+  // Hide feedback on clicking the input
+  function hideFeedbackOnClick(inputElements) {
+    for (const input of inputElements) {
+      const feedbackElement = input.nextElementSibling;
+
+      input.addEventListener('click', () => feedbackElement.style.display = 'none');
+    }
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formElement = event.target;
-
     const formData = new FormData(formElement);
     const flow = formElement.dataset.flow;
-    
-    formData.append('flow', flow);
 
+    formData.append('flow', flow);
+    
     const feedbacks = await sendFormData(formData);
+    const inputElements = getInputElements(formElement);
 
     showFeedbacks(formElement, feedbacks);
+    hideFeedbackOnClick(inputElements);
   } 
 
   async function init(modalElement) {

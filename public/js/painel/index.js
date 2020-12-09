@@ -16,7 +16,9 @@ MenuTransaction(modalAddExpense);
 
 MenuAccount(modalAddAccount);
 
-// Reset modal on closing it (jQuery)
-$('.modal').on('hidden.bs.modal', function(e) {
+// Reset form on closing modal (jQuery)
+$('.modal').on('hidden.bs.modal', function (e) {
   $(this).find('form')[0].reset();
+
+  $(this).find('form .invalid-feedback').hide();
 });
