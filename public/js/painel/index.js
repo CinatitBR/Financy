@@ -21,4 +21,5 @@ $('.modal').on('hidden.bs.modal', function (e) {
   $(this).find('form')[0].reset();
 
   $(this).find('form .invalid-feedback').hide();
+  $(this).find('form .success').hide();
 });
