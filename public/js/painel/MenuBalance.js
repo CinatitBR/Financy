@@ -41,7 +41,7 @@ export default function MenuBalance(menuBalance) {
 
     populateAccountSelect(accounts, accountSelect);
 
-    // Add change event
+    // Add event to select
     accountSelect.addEventListener('change', showBalance);
 
     // Force the event to trigger
