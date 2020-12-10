@@ -46,7 +46,6 @@
             'element' => 'account_nameError', 
             'message' => 'O nome da conta só pode conter letras, números, acentos, espaços e underlines.'
           ];
-          // $data["account_nameError"] = "O nome da conta só pode conter letras, números, acentos, espaços e underlines.";
         }
         // If the account name already exists
         elseif ($this->accountModel->findAccountByName($data['account_name'])) {
@@ -54,7 +53,6 @@
             'element' => 'account_nameError', 
             'message' => 'Essa conta já existe. Por favor, insira outro nome.'
           ];
-          // $data["account_nameError"] = "Essa conta já existe. Por favor, insira outro nome.";
         }
 
         // Gets account value
@@ -67,7 +65,6 @@
             'element' => 'valueError', 
             'message' => 'O valor inicial da conta não é valido. Por favor, tente novamente.'
           ];
-          // $data["valueError"] = "O valor inicial da conta não é valido. Por favor, tente novamente.";
         }
 
         // If there are errors
@@ -103,6 +100,15 @@
       $user_id = $_SESSION['user_id'];
 
       $accounts = $this->accountModel->getAccounts($user_id);
+      echo json_encode($accounts, JSON_UNESCAPED_UNICODE);
+    }
+
+    public function getAccountsByLastId($params) {
+      $user_id = $_SESSION['user_id'];
+      $lastAccountId = $params[0];
+
+      $accounts = $this->accountModel->getAccountsByLastId($user_id, $lastAccountId);
+      
       echo json_encode($accounts, JSON_UNESCAPED_UNICODE);
     }
 

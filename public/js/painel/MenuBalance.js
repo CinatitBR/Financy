@@ -1,6 +1,15 @@
 export default function MenuBalance(menuElement) {
+  const accountSelect = menuElement.querySelector('#accountSelect');
 
   this.lastAccountId = 0;
+
+  this.updateSelect = async () => {
+    const url = `http://localhost/financy/account/getAccountsByLastId/${this.lastAccountId}`;
+
+    const accounts = await fetchContent(url);
+
+    loadIntoSelect(accounts, accountSelect);
+  }
 
   async function fetchContent(url) {
     const response = await fetch(url);
@@ -15,7 +24,7 @@ export default function MenuBalance(menuElement) {
   }
 
   // Populate select with accounts
-  function loadIntoSelect(accounts, accountSelect) {
+  function loadIntoSelect(accounts, select) {
     let optionElements;
 
     for (const account of accounts) {
@@ -26,7 +35,7 @@ export default function MenuBalance(menuElement) {
       `;
     }
 
-    accountSelect.innerHTML = optionElements;
+    select.insertAdjacentHTML('beforeend', optionElements)
   }
 
   // Show balance of selected account
@@ -37,22 +46,17 @@ export default function MenuBalance(menuElement) {
     menuContent.innerText = `R$ ${balance}`;
   }
 
-
-  async function init(menuElement) {
-    const accountSelect = menuElement.querySelector('#accountSelect');
+  async function init() {
     const urlAccounts = `http://localhost/financy/account/getAccounts`;
-    const changeEvent = new Event('change');
     
     const accounts = await fetchContent(urlAccounts);
 
     loadIntoSelect(accounts, accountSelect);
 
-    // Add event to select
+    // Add event to select and force event to trigger
     accountSelect.addEventListener('change', showBalance);
-
-    // Force the event to trigger
-    accountSelect.dispatchEvent(changeEvent);
+    accountSelect.dispatchEvent(new Event('change'));
   }
 
-  init(menuElement);
+  init();
 }

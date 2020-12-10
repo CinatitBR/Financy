@@ -18,6 +18,25 @@
       }
     }
 
+    public function addAccounts($accounts, $user_id) {
+      foreach ($accounts as $account) {
+        $account_name = $account['account'];
+        $balance = $account['balance'];
+
+        $sql = "
+          INSERT INTO account (account_name, balance, user_id)
+          VALUES ('$account_name', $balance, $user_id)
+        ";
+
+        $result = $this->query($sql);
+
+        if (!$result) {
+          return false;
+        }
+      }
+      return true;
+    }
+
     public function findAccountByName($accountName) {
       $sql = "
         SELECT * FROM account
@@ -39,7 +58,7 @@
       $sql = "
         SELECT account_id, account_name, balance
         FROM account
-        WHERE user_id = $user_id;
+        WHERE user_id = $user_id
       ";
 
       $result = $this->query($sql);
@@ -48,23 +67,18 @@
       return $result;
     }
 
-    public function addAccounts($accounts, $user_id) {
-      foreach ($accounts as $account) {
-        $account_name = $account['account'];
-        $balance = $account['balance'];
+    public function getAccountsByLastId($user_id, $lastAccountId) {
+      $sql = "
+        SELECT account_id, account_name, balance
+        FROM account
+        WHERE user_id = $user_id
+        AND account_id > $lastAccountId
+      ";
 
-        $sql = "
-          INSERT INTO account (account_name, balance, user_id)
-          VALUES ('$account_name', $balance, $user_id)
-        ";
+      $result = $this->query($sql);
+      $result = $this->resultSet($result);
 
-        $result = $this->query($sql);
-
-        if (!$result) {
-          return false;
-        }
-      }
-      return true;
+      return $result;
     }
 
   }
