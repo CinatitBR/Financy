@@ -44,13 +44,23 @@ export default function MenuAccount(menuElement) {
     return inputElements;
   }
 
-  // Hide feedback on clicking the input
-  function hideFeedbackOnClick(inputElements) {
-    for (const input of inputElements) {
-      const feedbackElement = input.nextElementSibling;
+  function hideFeedbackOnClick(formElement) {
+    const inputElements = getInputElements(formElement);
+    const successElement = formElement.querySelector('.valid-feedback');
 
-      input.addEventListener('click', () => feedbackElement.style.display = 'none');
+    // Hide error feedback
+    for (const input of inputElements) {
+      const errorElement = input.nextElementSibling;
+
+      input.addEventListener('click', () => { 
+        errorElement.style.display = 'none'
+      });
     }
+
+    // Hide success feedback
+    formElement.addEventListener('click', () => { 
+      successElement.style.display = 'none'
+    });
   }
 
   async function handleSubmit(event) {
@@ -60,10 +70,9 @@ export default function MenuAccount(menuElement) {
     const formData = new FormData(formElement);
 
     const feedbacks = await sendFormData(formData);
-    const inputElements = getInputElements(formElement);
     
     showFeedbacks(formElement, feedbacks);
-    hideFeedbackOnClick(inputElements);
+    hideFeedbackOnClick(formElement);
   }
 
   async function init(menuElement) {

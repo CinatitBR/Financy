@@ -52,7 +52,7 @@ export default function MenuTransaction(modalElement) {
     return feedbacks;
   }
 
-  function showFeedbacks(formElement, feedbacks) {
+  function showFeedbacks(feedbacks, formElement) {    
     for (const feedback of feedbacks) {
       const feedbackElement = formElement.querySelector(`.${feedback.element}`);
       const message = feedback.message;
@@ -78,12 +78,23 @@ export default function MenuTransaction(modalElement) {
   }
 
   // Hide feedback on clicking the input
-  function hideFeedbackOnClick(inputElements) {
-    for (const input of inputElements) {
-      const feedbackElement = input.nextElementSibling;
+  function hideFeedbackOnClick(formElement) {
+    const inputElements = getInputElements(formElement);
+    const successElement = formElement.querySelector('.valid-feedback');
 
-      input.addEventListener('click', () => feedbackElement.style.display = 'none');
+    // Hide error feedback
+    for (const input of inputElements) {
+      const errorElement = input.nextElementSibling;
+
+      input.addEventListener('click', () => { 
+        errorElement.style.display = 'none'
+      });
     }
+
+    // Hide success feedback
+    formElement.addEventListener('click', () => { 
+      successElement.style.display = 'none'
+    });
   }
 
   async function handleSubmit(event) {
@@ -91,15 +102,14 @@ export default function MenuTransaction(modalElement) {
 
     const formElement = event.target;
     const formData = new FormData(formElement);
+
     const flow = formElement.dataset.flow;
-
     formData.append('flow', flow);
-    
-    const feedbacks = await sendFormData(formData);
-    const inputElements = getInputElements(formElement);
 
-    showFeedbacks(formElement, feedbacks);
-    hideFeedbackOnClick(inputElements);
+    const feedbacks = await sendFormData(formData);
+
+    showFeedbacks(feedbacks, formElement);
+    hideFeedbackOnClick(formElement);
   } 
 
   async function init(modalElement) {
