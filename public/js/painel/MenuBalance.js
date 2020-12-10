@@ -1,4 +1,6 @@
-export default function MenuBalance(menuBalance) {
+export default function MenuBalance(menuElement) {
+
+  this.lastAccountId = 0;
 
   async function fetchContent(url) {
     const response = await fetch(url);
@@ -13,33 +15,37 @@ export default function MenuBalance(menuBalance) {
   }
 
   // Populate select with accounts
-  function populateAccountSelect(accounts, accountSelect) {
+  function loadIntoSelect(accounts, accountSelect) {
+    let optionElements;
+
     for (const account of accounts) {
-      const option = document.createElement("option");
-  
-      option.value = account.balance;
-      option.innerText = account.account_name;
-  
-      accountSelect.appendChild(option);
+      optionElements += `
+        <option value="${account.balance}">
+          ${account.account_name}
+        </option>
+      `;
     }
+
+    accountSelect.innerHTML = optionElements;
   }
 
   // Show balance of selected account
   function showBalance(event) {
-    const menuContent = menuBalance.querySelector('.menu-content');
+    const menuContent = menuElement.querySelector('.menu-content');
     const balance = event.target.value;
   
     menuContent.innerText = `R$ ${balance}`;
   }
 
-  async function init(menuBalance) {
-    const accountSelect = menuBalance.querySelector('#accountSelect');
+
+  async function init(menuElement) {
+    const accountSelect = menuElement.querySelector('#accountSelect');
     const urlAccounts = `http://localhost/financy/account/getAccounts`;
     const changeEvent = new Event('change');
     
     const accounts = await fetchContent(urlAccounts);
 
-    populateAccountSelect(accounts, accountSelect);
+    loadIntoSelect(accounts, accountSelect);
 
     // Add event to select
     accountSelect.addEventListener('change', showBalance);
@@ -48,5 +54,5 @@ export default function MenuBalance(menuBalance) {
     accountSelect.dispatchEvent(changeEvent);
   }
 
-  init(menuBalance);
+  init(menuElement);
 }

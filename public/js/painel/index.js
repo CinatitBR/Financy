@@ -2,14 +2,14 @@ import MenuBalance from './MenuBalance.js';
 import MenuTransaction from './MenuTransaction.js';
 import MenuAccount from './MenuAccount.js';
 
-const menuBalance = document.querySelector('.menu-balance');
+const menuBalanceElement = document.querySelector('.menu-balance');
 
 const modalAddEarn = document.querySelector('#modalAddEarn');
 const modalAddExpense = document.querySelector('#modalAddExpense');
 
 const modalAddAccount = document.querySelector('#modalAddAccount');
 
-MenuBalance(menuBalance);
+const menuBalance = new MenuBalance(menuBalanceElement);
 
 MenuTransaction(modalAddEarn);
 MenuTransaction(modalAddExpense);
