@@ -39,7 +39,6 @@
             'element' => 'account_nameError', 
             'message' => 'Por favor, insira o nome da conta que você quer adicionar.'
           ];
-          // $data["account_nameError"] = "Por favor, insira o nome da conta que você quer adicionar.";
         }
         elseif (!preg_match($validation, $data['account_name'])) {
           $feedbackErrors[] = [
@@ -69,29 +68,42 @@
 
         // If there are errors
         if ($feedbackErrors) {
-          echo json_encode($feedbackErrors, JSON_UNESCAPED_UNICODE);
+          
+          echo json_encode([
+            'lastAccountId' => null,
+            'feedbacks' => $feedbackErrors
+          ], JSON_UNESCAPED_UNICODE);
+
           return;
         }
 
         // Converts string to number
         $data["value"] = $data["value"] + 0;
 
-        // Tries to insert account into database, and returns result
-        $result = $this->accountModel->addAccount($data);
+        // Tries to insert account into database, and returns $lastAccountId or false
+        $lastAccountId = $this->accountModel->addAccount($data);
 
         // If the account was not added
-        if (!$result) {
+        if (!$lastAccountId) {
           $feedbackErrors[] = [
             'element' => 'databaseError',
             'message' => "Erro ao adicionar pagamento. Por favor, tente novamente."
           ];
 
-          echo json_encode($feedbackErrors, JSON_UNESCAPED_UNICODE);
+          echo json_encode([
+            'lastAccountId' => null,
+            'feedbacks' => $feedbackErrors
+          ], JSON_UNESCAPED_UNICODE);
+
           return;
         }
 
         // If the account was added successfully
-        echo json_encode($feedbackSuccess, JSON_UNESCAPED_UNICODE);
+        echo json_encode([
+          'lastAccountId' => $lastAccountId, 
+          'feedbacks' => $feedbackSuccess
+        ], JSON_UNESCAPED_UNICODE);
+
         return;
       }
     }

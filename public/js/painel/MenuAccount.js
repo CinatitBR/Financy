@@ -1,4 +1,4 @@
-export default function MenuAccount(menuElement) {
+export default function MenuAccount(menuElement, menuBalance) {
 
   async function sendFormData(formData) {
     const url = `http://localhost/financy/account/create`;
@@ -14,9 +14,7 @@ export default function MenuAccount(menuElement) {
       throw new Error(message);
     }
 
-    const feedbacks = await response.json();
-
-    return feedbacks;
+    return await response.json();
   }
 
   function showFeedbacks(formElement, feedbacks) {
@@ -69,16 +67,24 @@ export default function MenuAccount(menuElement) {
     const formElement = event.target;
     const formData = new FormData(formElement);
 
-    const feedbacks = await sendFormData(formData);
-    
+    const response = await sendFormData(formData);
+    const feedbacks = response.feedbacks;
+    const lastAccountId = response.lastAccountId;
+
     showFeedbacks(formElement, feedbacks);
-    hideFeedbackOnClick(formElement);
+
+    // If lastAccountId exists, update "select element" of menuBalance
+    if (lastAccountId) {
+      menuBalance.updateSelect(lastAccountId);
+    }
   }
 
   async function init(menuElement) {
     const formElement = menuElement.querySelector('form');
 
     formElement.addEventListener('submit', handleSubmit);
+
+    hideFeedbackOnClick(formElement);
   }
 
   init(menuElement);

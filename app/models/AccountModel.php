@@ -9,9 +9,11 @@
         VALUES ('$account_name', $value, $user_id);
       ";
       
-      // If the query is succesfull
+      // If the query was succesfull, return last account's id
       if ($this->query($sql)) {
-        return true;
+        $lastAccountId = $this->lastInsertedId();
+
+        return $lastAccountId;
       }
       else {
         return false;

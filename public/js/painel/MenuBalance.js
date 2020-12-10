@@ -1,10 +1,9 @@
 export default function MenuBalance(menuElement) {
   const accountSelect = menuElement.querySelector('#accountSelect');
 
-  this.lastAccountId = 0;
-
-  this.updateSelect = async () => {
-    const url = `http://localhost/financy/account/getAccountsByLastId/${this.lastAccountId}`;
+  this.updateSelect = async (lastAccountId) => {
+    const offset = lastAccountId - 1;
+    const url = `http://localhost/financy/account/getAccountsByLastId/${offset}`;
 
     const accounts = await fetchContent(url);
 
