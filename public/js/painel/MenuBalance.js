@@ -1,25 +1,13 @@
-export default function MenuBalance(menuElement) {
+export default function MenuBalance(menuElement, form) {
   const accountSelect = menuElement.querySelector('#accountSelect');
 
   this.updateSelect = async (lastAccountId) => {
     const offset = lastAccountId - 1;
     const url = `http://localhost/financy/account/getAccountsByLastId/${offset}`;
 
-    const accounts = await fetchContent(url);
+    const accounts = await form.fetchContent(url);
 
     loadIntoSelect(accounts, accountSelect);
-  }
-
-  async function fetchContent(url) {
-    const response = await fetch(url);
-
-     // Handle fetch errors
-    if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
-      throw new Error(message);
-    }
-
-    return await response.json();
   }
 
   // Populate select with accounts
@@ -48,7 +36,7 @@ export default function MenuBalance(menuElement) {
   async function init() {
     const urlAccounts = `http://localhost/financy/account/getAccounts`;
     
-    const accounts = await fetchContent(urlAccounts);
+    const accounts = await form.fetchContent(urlAccounts);
 
     loadIntoSelect(accounts, accountSelect);
 
