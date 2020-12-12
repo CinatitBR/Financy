@@ -11,11 +11,11 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>20/2015</td>
+        <th scope="row">Valor</th>
+        <td>Conta</td>
+        <td>Categoria</td>
+        <td>Data</td>
+        <td>Status</td>
       </tr>
       <tr>
         <th scope="row">2</th>
