@@ -69,7 +69,8 @@ header .dropdown-item:hover {
 /* Menu list */
 
 .menu-list {
-  margin: 60px auto;
+  margin: 0 auto;
+  margin-top: 60px;
   max-width: 700px;
 
   display: flex;
@@ -239,6 +240,19 @@ header .dropdown-item:hover {
   fill: var(--brown);
 }
 
+/* Payment table */
+
+.payment-table {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 60px;
+  border-radius: var(--border-radius);
+}
+
+.payment-table thead tr th {
+  border-top: 0;
+}
+
 /* Modal */
 
 .modal-open {
@@ -277,6 +291,10 @@ header .dropdown-item:hover {
 @media only screen and (max-width:600px) {
   .menu-list {
     flex-direction: column;
+  }
+
+  .menu {
+    margin: 16px 4px;
   }
 
   .menu-balance .menu-content {

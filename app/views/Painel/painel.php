@@ -169,6 +169,8 @@
 
     </div>
 
+    <!-- Payment table -->
+    <?php require APPROOT . '/views/painel/paymentTable.php' ?>
   </div>
 
   <!-- MODALS -->
