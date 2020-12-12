@@ -31,7 +31,7 @@ export default function MenuTransaction(modalElement, form) {
 
     formData.append('flow', flow);
 
-    const url = `http://localhost/financy/transaction/create`;
+    const url = `http://localhost/financy/payment/create`;
     const feedbacks = await form.sendFormData(formData, url);
 
     form.showFeedbacks(formElement, feedbacks);

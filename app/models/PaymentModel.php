@@ -40,4 +40,24 @@
         return false;
       }
     }
+
+    public function getPayments($user_id) {
+      $sql = "
+        SELECT value, date, description, 
+          account.account_name, category.category, status.status
+        FROM payment
+        INNER JOIN account
+          ON payment.account_id = account.account_id
+        INNER JOIN category
+          ON payment.category_id = category.category_id
+        INNER JOIN status
+          ON payment.status_id = status.status_id
+        WHERE payment.user_id = $user_id;
+      ";
+
+      $result = $this->query($sql);
+      $payments = $this->resultSet($result);
+
+      return $payments;
+    }
   }

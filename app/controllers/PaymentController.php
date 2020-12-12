@@ -1,5 +1,5 @@
 <?php
-  class TransactionController extends Controller {
+  class PaymentController extends Controller {
     private $paymentModel;
 
     public function __construct() {
@@ -72,6 +72,14 @@
           echo json_encode($feedbackErrors, JSON_UNESCAPED_UNICODE);
         }
       }
+    }
+
+    public function getPayments() {
+      $user_id = $_SESSION['user_id'];
+
+      $payments = $this->paymentModel->getPayments($user_id);
+
+      echo json_encode($payments, JSON_UNESCAPED_UNICODE);
     }
 
   }

@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <!-- <tr>
         <th scope="row">Valor</th>
         <td>Conta</td>
         <td>Categoria</td>
@@ -30,7 +30,7 @@
         <td>teste</td>
         <td>@twitter</td>
         <td>20/2015</td>
-      </tr>
+      </tr> -->
     </tbody>
   </table>
 </div>
