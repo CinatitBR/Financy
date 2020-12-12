@@ -23,13 +23,6 @@
         <td>Thornton</td>
         <td>@fat</td>
         <td>20/2015</td>
-      </tr>
-      <tr>
-        <th scope="row">R$ 540,00</th>
-        <td>R$ 540,00</td>
-        <td>teste</td>
-        <td>@twitter</td>
-        <td>20/2015</td>
       </tr> -->
     </tbody>
   </table>

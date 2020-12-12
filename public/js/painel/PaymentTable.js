@@ -4,7 +4,7 @@ export default function PaymentTable(paymentTableElement, form) {
   const urlPayments = `http://localhost/financy/payment/getPayments`;
 
   function loadIntoTable(payments) {
-    let trElements;
+    let trElements = '';
 
     for (const payment of payments) {
       trElements += `
