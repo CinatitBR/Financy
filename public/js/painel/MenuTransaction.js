@@ -1,4 +1,4 @@
-export default function MenuTransaction(modalElement, form) {
+export default function MenuTransaction(modalElement, paymentTable, form) {
 
   function populateAccountSelect(accounts, select) {
     for (const account of accounts) {
@@ -26,15 +26,23 @@ export default function MenuTransaction(modalElement, form) {
     event.preventDefault();
 
     const formElement = event.target;
-    const flow = formElement.dataset.flow;
     const formData = new FormData(formElement);
+    const flow = formElement.dataset.flow;
 
     formData.append('flow', flow);
 
     const url = `http://localhost/financy/payment/create`;
-    const feedbacks = await form.sendFormData(formData, url);
+    const response = await form.sendFormData(formData, url);
+
+    const feedbacks = response.feedbacks;
+    const lastPaymentId = response.lastPaymentId;
 
     form.showFeedbacks(formElement, feedbacks);
+
+    // If lastPaymentId exists, update payment table
+    if (lastPaymentId) {
+      paymentTable.updateTable(lastPaymentId);
+    }
   } 
 
   async function init() {

@@ -18,10 +18,11 @@
       ];
 
       $feedbackErrors = [];
-
       $feedbackSuccess = [
         ['element' => 'success', 'message' => 'Transação adicionada com sucesso!']
       ];
+
+      $response = ['lastPaymentId' => null, 'feedbacks' => []];
 
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -47,30 +48,39 @@
           ];
         }
 
-        // If there are no errors
-        if (empty($feedbackErrors)) {
+        // If there are errors
+        if ($feedbackErrors) {
+          $response['feedbacks'] = $feedbackErrors;
 
-          // Add payment to database
-          $result = $this->paymentModel->add($data);
+          echo json_encode($response, JSON_UNESCAPED_UNICODE);
 
-          // If the payment was not added
-          if (!$result) {
-            $feedbackErrors[] = [
-              'element' => 'databaseError',
-              'message' => "Erro ao adicionar pagamento. Por favor, tente novamente."
-            ];
-
-            echo json_encode($feedbackErrors, JSON_UNESCAPED_UNICODE);
-            return;
-          }
-
-          // If the payment was added successfully
-          echo json_encode($feedbackSuccess, JSON_UNESCAPED_UNICODE);
           return;
-        } 
-        else {
-          echo json_encode($feedbackErrors, JSON_UNESCAPED_UNICODE);
         }
+
+        // Tries to insert payment into database, and returns $lastPaymentId or false
+        $lastPaymentId = $this->paymentModel->add($data);
+
+        // If the payment was not added
+        if (!$lastPaymentId) {
+          $feedbackErrors[] = [
+            'element' => 'databaseError',
+            'message' => "Erro ao adicionar pagamento. Por favor, tente novamente."
+          ];
+
+          $response['feedbacks'] = $feedbackErrors;
+
+          echo json_encode($response, JSON_UNESCAPED_UNICODE);
+
+          return;
+        }
+
+        // If the payment was added successfully
+        $response['lastPaymentId'] = $lastPaymentId;
+        $response['feedbacks'] = $feedbackSuccess;
+
+        echo json_encode($response, JSON_UNESCAPED_UNICODE);
+
+        return;
       }
     }
 
@@ -82,4 +92,12 @@
       echo json_encode($payments, JSON_UNESCAPED_UNICODE);
     }
 
+    public function getPaymentsByLastId($params) {
+      $user_id = $_SESSION['user_id'];
+      $lastPaymentId = $params[0];
+
+      $payments = $this->paymentModel->getPaymentsByLastId($user_id, $lastPaymentId);
+      
+      echo json_encode($payments, JSON_UNESCAPED_UNICODE);
+    }
   }

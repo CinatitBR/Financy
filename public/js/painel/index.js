@@ -16,8 +16,8 @@ const modalAddAccount = document.querySelector('#modalAddAccount');
 const menuBalance = new MenuBalance(menuBalanceElement, form);
 const paymentTable = new PaymentTable(paymentTableElement, form)
 
-MenuTransaction(modalAddEarn, form);
-MenuTransaction(modalAddExpense, form);
+MenuTransaction(modalAddEarn, paymentTable, form);
+MenuTransaction(modalAddExpense, paymentTable, form);
 
 MenuAccount(modalAddAccount, menuBalance, form);
 
