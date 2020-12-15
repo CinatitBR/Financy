@@ -76,6 +76,16 @@ function hideSuccessOnClick(form) {
   });
 }
 
+function getValuesInsideSelect(select) {
+  const options = Array.from(select.querySelectorAll('option'));
+
+  const values = options.map(option => {
+    return option.value;
+  });
+
+  return values;
+}
+
 async function getAccounts() {
   const url = `http://localhost/financy/account/getAccounts`;
 
@@ -103,11 +113,21 @@ async function getPayments() {
 async function addAccountsIntoSelect(select) {
   const accounts = await getAccounts();
 
-  const accountsTemplate = accounts.map(({ account_id, balance, account_name }) => `
-    <option value="${account_id}" data-balance="${balance}">
-      ${account_name}
-    </option>
-  `).join('');
+  // Get ids inside the select
+  const idsInsideSelect = getValuesInsideSelect(select);
+
+  const accountsTemplate = accounts.map(({ account_id, balance, account_name }) => {
+
+    // If the account_id is not inside the select
+    if (!idsInsideSelect.includes(account_id)) {
+      return `
+        <option value="${account_id}" data-balance="${balance}">
+          ${account_name}
+        </option>
+      `;
+    }
+    
+  }).join('');
 
   select.insertAdjacentHTML('beforeend', accountsTemplate);
 }
@@ -183,6 +203,11 @@ async function handleAddAccountSubmit(event) {
   const { feedbacks, lastPaymentId } = response;
 
   showFeedbacks(form, feedbacks);
+
+  // If the new account was added, update select
+  if (feedbacks[0].element === 'success') {
+    addAccountsIntoSelect(elAccountToDisplay);
+  }
 }
 
 // MENU BALANCE
@@ -192,6 +217,8 @@ addAccountsIntoSelect(elAccountToDisplay)
   .then(() => {
     elAccountToDisplay.addEventListener('change', showBalanceIntoDisplay);
     elAccountToDisplay.dispatchEvent(new Event('change'));
+
+    getValuesInsideSelect(elAccountToDisplay);
   });
 
 // MENU ADD PAYMENT
