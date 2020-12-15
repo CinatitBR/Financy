@@ -1,6 +1,6 @@
 <div 
   class="modal fade" 
-  id="modalAddAccount" 
+  id="modal_add_account" 
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -15,19 +15,19 @@
         </button>
       </div>
 
-      <form action="#">
+      <form action="#" id="form_add_account">
         <div class="modal-body">
           <div class="success valid-feedback"></div>
 
           <div class="field-list">
 
             <div class="item">
-              <label for="nameAddAccount">Nome da conta</label>
+              <label for="name_add_account">Nome da conta</label>
 
               <input 
                 type="text" 
                 name="account_name" 
-                id="nameAddAccount" 
+                id="name_add_account" 
                 maxlength="100" 
                 required 
               />
@@ -36,13 +36,13 @@
             </div>
 
             <div class="item">
-              <label for="valueAddAccount">Valor inicial</label>
+              <label for="value_add_account">Valor inicial</label>
 
               <input 
                 type="text" 
                 class="money" 
                 name="value"
-                id="valueAddAccount"
+                id="value_add_account"
                 step="0.01"
                 required
               >

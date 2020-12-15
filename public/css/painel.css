@@ -286,6 +286,15 @@ header .dropdown-item:hover {
   font-size: 25px;
 }
 
+/* Helper classes */
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
 /* Responsiveness */
 
 @media only screen and (max-width:600px) {

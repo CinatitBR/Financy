@@ -89,10 +89,10 @@
       <!-- Menu Balance -->
       <div class="menu-balance menu">
 
-        <select id="accountSelect"></select>
+        <select id="account_to_display"></select>
         <span id="alertSelect">Você ainda não tem uma conta</span>
 
-        <span class="menu-content">R$</span>
+        <span id="display_balance" class="menu-content">R$</span>
         <div class="menu-title"><h3>Seu saldo</h3></div>
 
       </div>
@@ -106,7 +106,7 @@
           <span
             class="menu-content plus-icon__wrapper" 
             data-toggle="modal" 
-            data-target="#modalAddEarn"
+            data-target="#modal_add_earn"
           >
             <!-- Plus icon -->
             <svg class="icon plus-icon" height="30px" viewBox="0 0 469.33333 469.33333" width="30px" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +121,7 @@
           <span 
             class="menu-content minus-icon__wrapper" 
             data-toggle="modal" 
-            data-target="#modalAddExpense"
+            data-target="#modal_add_expense"
           >
             <!-- Minus icon -->
             <svg class="icon minus-icon" height="469pt" viewBox="0 -192 469.33333 469" width="469pt" fill="#363A41" xmlns="http://www.w3.org/2000/svg">
@@ -140,7 +140,7 @@
         <span 
           class="menu-content wallet-icon__wrapper" 
           data-toggle="modal"
-          data-target="#modalAddAccount"
+          data-target="#modal_add_account"
         >
           <!-- Wallet icon -->
           <svg class="icon wallet-icon" fill="#363A41" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

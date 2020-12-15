@@ -1,6 +1,6 @@
 <div 
   class="modal fade" 
-  id="modalAddExpense" 
+  id="modal_add_expense" 
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -15,28 +15,32 @@
         </button>
       </div>
 
-      <form action="#" data-flow="S">
+      <form action="#" data-flow="S" class="form-payment">
         <div class="modal-body">
           <div class="success valid-feedback"></div>
 
           <div class="field-list">
 
             <div class="item">
-              <label for="accountAddExpense">Conta</label>
+              <label for="account_add_expense">Conta</label>
 
-              <select class="accountSelect" name="account_id" id="accountAddExpense">
+              <select class="select-account" name="account_id" id="account_add_expense">
               </select>
+
+              <div class="accountError invalid-feedback"></div>
             </div>
 
             <div class="item">
-              <label for="categoryAddExpense">Categoria</label>
+              <label for="category_add_expense">Categoria</label>
 
-              <select class="categorySelect" name="category_id" id="categoryAddExpense">
+              <select class="select-category" name="category_id" id="category_add_expense">
               </select>
+
+              <div class="categoryError invalid-feedback"></div>
             </div>
         
             <div class="item">
-              <label for="valueAddExpense">Valor</label>
+              <label for="value_add_expense">Valor</label>
 
               <input 
                 type="text" 
@@ -44,7 +48,7 @@
                 name="value"
                 aria-label="Amount (to the nearest dollar)" 
                 step="0.01"
-                id="valueAddExpense"
+                id="value_add_expense"
                 required
               >
 
@@ -52,18 +56,22 @@
             </div>
 
             <div class="item">
-              <label for="statusAddExpense">Status</label>
+              <label for="status_add_expense">Status</label>
 
-              <select name="status_id" id="statusAddExpense">
+              <select name="status_id" id="status_add_expense">
                 <option value="2">Concluido</option>
                 <option value="1">Pendente</option>
               </select>
+
+              <div class="statusError invalid-feedback"></div>
             </div>
 
             <div class="item">
-              <label for="descAddExpense">Descrição (opcional)</label>
+              <label for="desc_add_expense">Descrição (opcional)</label>
 
-              <textarea name="description" id="descAddExpense" rows="2"></textarea>
+              <textarea name="description" id="desc_add_expense" rows="2"></textarea>
+
+              <div class="descError invalid-feedback"></div>
             </div>
 
           </div>

@@ -4,12 +4,13 @@
       <tr>
         <th scope="col">Valor</th>
         <th scope="col">Conta</th>
+        <th scope="col">Descrição</th>
         <th scope="col">Categoria</th>
         <th scope="col">Data</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="payment_table_body">
       <!-- <tr>
         <th scope="row">Valor</th>
         <td>Conta</td>
