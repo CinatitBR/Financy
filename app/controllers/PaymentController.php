@@ -84,10 +84,11 @@
       }
     }
 
-    public function getPayments() {
+    public function getPayments($params) {
       $user_id = $_SESSION['user_id'];
+      $offset = $params[0];
 
-      $payments = $this->paymentModel->getPayments($user_id);
+      $payments = $this->paymentModel->getPayments($user_id, $offset);
 
       echo json_encode($payments, JSON_UNESCAPED_UNICODE);
     }

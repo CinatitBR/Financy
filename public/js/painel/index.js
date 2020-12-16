@@ -1,4 +1,6 @@
-const paymentOffset = 0;
+let paymentOffset = 0;
+
+const btnNextWrapper = document.querySelector('.pagination-next__wrapper');
 
 async function fetchContent(url) {
   const response = await fetch(url);
@@ -105,8 +107,8 @@ async function getCategoriesByFlow(flow) {
   return categories;
 }
 
-async function getPayments() {
-  const url = `http://localhost/financy/payment/getPayments`;
+async function getPayments(paymentOffset) {
+  const url = `http://localhost/financy/payment/getPayments/${paymentOffset}`;
 
   const payments = await fetchContent(url);
 
@@ -162,10 +164,10 @@ async function addCategoriesByFlowIntoSelect(select, flow) {
 async function addPaymentsIntoTable() {
   const tableBody = document.querySelector('#payment_table_body');
 
-  const payments = await getPayments();
+  const payments = await getPayments(paymentOffset);
 
-  const paymentsTemplate  = payments.map(({ value, account_name, description, category, date, status }) => `
-    <tr>
+  const paymentsTemplate  = payments.map(({ payment_id, value, account_name, description, category, date, status }) => `
+    <tr data-payment-id="${payment_id}">
       <th scope="row">R$ ${value}</th>
       <td>${account_name}</td>
       <td>${description}</td>
@@ -175,7 +177,7 @@ async function addPaymentsIntoTable() {
     </tr>
   `).join('');
 
-  tableBody.insertAdjacentHTML('beforeend', paymentsTemplate);
+  tableBody.innerHTML = paymentsTemplate;
 }
 
 function showBalanceIntoDisplay(event) {
@@ -183,6 +185,18 @@ function showBalanceIntoDisplay(event) {
   const balance = event.target.options[event.target.selectedIndex].dataset.balance;
 
   elDisplayBalance.innerText = `R$ ${balance}`;
+}
+
+// Set state of next pagination button
+async function setNextBtnState() {
+  const nextPaginationExists = await getPayments(paymentOffset + 10);
+
+  if (nextPaginationExists.length > 0) {
+    btnNextWrapper.classList.remove('disabled');
+  }
+  else if (nextPaginationExists.length === 0) {
+    btnNextWrapper.classList.add('disabled');
+  }
 }
 
 async function handleAddPaymentSubmit(event) {
@@ -201,10 +215,11 @@ async function handleAddPaymentSubmit(event) {
 
   showFeedbacks(form, feedbacks);
 
-  // If new payment was added, update payment table
-  // if (feedbacks[0].element === 'success') {
-  //   addPaymentsIntoTable();
-  // }
+  // If new payment was added successfully
+  if (feedbacks[0].element === 'success') {
+    setNextBtnState();
+    addPaymentsIntoTable();
+  }
 }
 
 async function handleAddAccountSubmit(event) {
@@ -307,6 +322,36 @@ hideErrorOnClick(formAddCategory);
 
 // === PAYMENT TABLE ===
 addPaymentsIntoTable();
+
+// === PAGINATION ===
+const btnPreviousWrapper = document.querySelector('.pagination-previous__wrapper');
+
+const btnNext = document.querySelector('#pagination_next');
+const btnPrevious = document.querySelector('#pagination_previous');
+
+// Set state of next button
+setNextBtnState();
+
+btnNext.addEventListener('click', async () => {
+  paymentOffset += 10;
+  addPaymentsIntoTable();
+  setNextBtnState();
+
+  if (paymentOffset > 0) {
+    btnPreviousWrapper.classList.remove('disabled');
+  }
+});
+
+btnPrevious.addEventListener('click', () => {
+  if (paymentOffset === 10) {
+    btnPreviousWrapper.classList.add('disabled');
+  }
+
+  paymentOffset -= 10;
+
+  addPaymentsIntoTable();
+  setNextBtnState()
+});
 
 
 // jQuery - reset form on closing modal

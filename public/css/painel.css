@@ -261,6 +261,22 @@ header .dropdown-item:hover {
   border-top: 0;
 }
 
+/* Pagination component */
+
+.pagination .page-item .page-link {
+  background: var(--black);
+  color: #fff;
+  border-color: grey;
+}
+
+.pagination .page-item .page-link:hover {
+  background: #53575f;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: var(--dark-grey) !important;
+}
+
 /* Modal */
 
 .modal-open {

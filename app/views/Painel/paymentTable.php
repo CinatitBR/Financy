@@ -28,3 +28,21 @@
     </tbody>
   </table>
 </div>
+
+<nav class="pagination__wrapper mt-3" aria-label="Page navigation">
+  <ul class="pagination justify-content-center pagination-lg">
+
+    <li class="page-item pagination-previous__wrapper disabled">
+      <a class="page-link" id="pagination_previous" href="#" tabindex="-1">Previous</a>
+    </li>
+
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+    <li class="page-item pagination-next__wrapper disabled">
+      <a class="page-link" id="pagination_next" href="#">Next</a>
+    </li>
+
+  </ul>
+</nav>

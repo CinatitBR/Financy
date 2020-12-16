@@ -43,9 +43,9 @@
       }
     }
 
-    public function getPayments($user_id) {
+    public function getPayments($user_id, $offset) {
       $sql = "
-        SELECT value, date, description, 
+        SELECT payment_id, value, date, description, 
           account.account_name, category.category, status.status
         FROM payment
         LEFT JOIN account
@@ -55,6 +55,9 @@
         LEFT JOIN status
           ON payment.status_id = status.status_id
         WHERE payment.user_id = $user_id
+        ORDER BY payment_id DESC
+        LIMIT 10
+        OFFSET $offset
       ";
 
       $result = $this->query($sql);
