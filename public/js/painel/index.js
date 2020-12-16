@@ -119,22 +119,22 @@ async function addAccountsIntoSelect(select) {
   const accounts = await getAccounts();
 
   // Get ids inside the select
-  const idsInsideSelect = getValuesInsideSelect(select);
+  // const idsInsideSelect = getValuesInsideSelect(select);
 
   const accountsTemplate = accounts.map(({ account_id, balance, account_name }) => {
 
     // If the account_id is not inside the select
-    if (!idsInsideSelect.includes(account_id)) {
+    // if (!idsInsideSelect.includes(account_id)) {
       return `
         <option value="${account_id}" data-balance="${balance}">
           ${account_name}
         </option>
       `;
-    }
+    // }
 
   }).join('');
 
-  select.insertAdjacentHTML('beforeend', accountsTemplate);
+  select.innerHTML = accountsTemplate;
 }
 
 async function addCategoriesByFlowIntoSelect(select, flow) {
@@ -219,6 +219,11 @@ async function handleAddPaymentSubmit(event) {
   if (feedbacks[0].element === 'success') {
     setNextBtnState();
     addPaymentsIntoTable();
+
+    addAccountsIntoSelect(elAccountToDisplay)
+      .then(() => {
+        elAccountToDisplay.dispatchEvent(new Event('change'));
+      })
   }
 }
 
