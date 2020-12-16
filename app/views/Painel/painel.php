@@ -89,7 +89,7 @@
       <!-- Menu Balance -->
       <div class="menu-balance menu">
 
-        <select id="account_to_display"></select>
+        <select id="account_to_display" class="select-account"></select>
         <span id="alertSelect">Você ainda não tem uma conta</span>
 
         <span id="display_balance" class="menu-content">R$</span>

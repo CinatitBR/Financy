@@ -79,6 +79,7 @@ function hideSuccessOnClick(form) {
 }
 
 function getValuesInsideSelect(select) {
+  // console.log(select);
   const options = Array.from(select.querySelectorAll('option'));
 
   const values = options.map(option => {
@@ -219,9 +220,13 @@ async function handleAddAccountSubmit(event) {
 
   showFeedbacks(form, feedbacks);
 
-  // If the new account was added, update select
+  // If the new account was added, update selects
   if (feedbacks[0].element === 'success') {
-    addAccountsIntoSelect(elAccountToDisplay);
+    const selectsToBeUpdated = Array.from(document.querySelectorAll('.select-account'));
+
+    for (const select of selectsToBeUpdated) {
+      addAccountsIntoSelect(select);
+    }
   }
 }
 
@@ -242,8 +247,9 @@ async function handleAddCategorySubmit(event) {
   if (feedbacks[0].element === 'success') {
     const categoryFlow = formData.get('flow');
 
-    const selectToBeUpdated = 
-      document.querySelector(`.form-payment[data-flow="S"] .select-category`);
+    const selectToBeUpdated = document.querySelector(`
+      .form-payment[data-flow="${categoryFlow}"] .select-category
+    `);
 
     addCategoriesByFlowIntoSelect(selectToBeUpdated, categoryFlow);
   }
