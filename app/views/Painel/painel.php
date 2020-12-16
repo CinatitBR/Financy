@@ -131,7 +131,7 @@
 
         </div>
 
-        <div class="menu-title"><h3>Adicionar transação</h3></div>
+        <div class="menu-title"><h3>Adicionar pagamento</h3></div>
       </div>
 
       <!-- Menu wallet -->
