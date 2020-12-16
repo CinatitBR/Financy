@@ -6,7 +6,7 @@
 
       $sql = "
         INSERT INTO account (account_name, balance, user_id)
-        VALUES ('$account_name', $value, $user_id);
+        VALUES ('$account_name', $value, $user_id)
       ";
       
       // If the query was succesfull, return last account's id
@@ -39,10 +39,11 @@
       return true;
     }
 
-    public function findAccountByName($accountName) {
+    public function findAccountByName($accountName, $user_id) {
       $sql = "
         SELECT * FROM account
-        WHERE account_name = '$accountName';
+        WHERE account_name = '$accountName'
+        AND user_id = $user_id
       ";
 
       $result = $this->query($sql);

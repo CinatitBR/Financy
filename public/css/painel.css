@@ -240,6 +240,14 @@ header .dropdown-item:hover {
   fill: var(--brown);
 }
 
+.tag-icon__wrapper:hover {
+  border: 3px solid var(--brown);
+}
+
+.tag-icon__wrapper:hover .tag-icon {
+  fill: var(--brown);
+}
+
 /* Payment table */
 
 .payment-table {

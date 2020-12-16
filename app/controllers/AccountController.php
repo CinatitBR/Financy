@@ -10,7 +10,7 @@
       $data = [
         "account_name" => "",
         "value" => 0,
-        "user_id" => 0
+        "user_id" => null
       ];
 
       $feedbackErrors = [];
@@ -40,14 +40,19 @@
             'message' => 'Por favor, insira o nome da conta que você quer adicionar.'
           ];
         }
-        elseif (!preg_match($validation, $data['account_name'])) {
+
+        // Validate characters
+        if (!preg_match($validation, $data['account_name'])) {
           $feedbackErrors[] = [
             'element' => 'account_nameError', 
             'message' => 'O nome da conta só pode conter letras, números, acentos, espaços e underlines.'
           ];
-        }
+        } 
+
         // If the account name already exists
-        elseif ($this->accountModel->findAccountByName($data['account_name'])) {
+        $accountExists = $this->accountModel->findAccountByName($data['account_name'], $data['user_id']);
+
+        if ($accountExists) {
           $feedbackErrors[] = [
             'element' => 'account_nameError', 
             'message' => 'Essa conta já existe. Por favor, insira outro nome.'
@@ -86,8 +91,8 @@
         // If the account was not added
         if (!$lastAccountId) {
           $feedbackErrors[] = [
-            'element' => 'databaseError',
-            'message' => "Erro ao adicionar pagamento. Por favor, tente novamente."
+            'element' => 'database-error',
+            'message' => "Erro ao adicionar conta. Por favor, tente novamente."
           ];
 
           echo json_encode([

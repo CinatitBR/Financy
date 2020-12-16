@@ -1,3 +1,5 @@
+const paymentOffset = 0;
+
 async function fetchContent(url) {
   const response = await fetch(url);
 
@@ -126,7 +128,7 @@ async function addAccountsIntoSelect(select) {
         </option>
       `;
     }
-    
+
   }).join('');
 
   select.insertAdjacentHTML('beforeend', accountsTemplate);
@@ -135,17 +137,30 @@ async function addAccountsIntoSelect(select) {
 async function addCategoriesByFlowIntoSelect(select, flow) {
   const categories = await getCategoriesByFlow(flow);
 
-  const categoriesTemplate = categories.map(({ category_id, category }) => `
-    <option value="${category_id}">
-      ${category}
-    </option>
-  `).join('');
+  // Get ids inside the select
+  const idsInsideSelect = getValuesInsideSelect(select);
+  
+  const categoriesTemplate = categories.map(({ category_id, category }) => {
+    
+    const isIdInsideSelect = idsInsideSelect.includes(category_id);
+
+    // If the category_id is not inside the select
+    if (!isIdInsideSelect) {
+      return `
+        <option value="${category_id}">
+          ${category}
+        </option>
+      `;
+    }
+
+  }).join('');
 
   select.insertAdjacentHTML('beforeend', categoriesTemplate);
 }
 
 async function addPaymentsIntoTable() {
   const tableBody = document.querySelector('#payment_table_body');
+
   const payments = await getPayments();
 
   const paymentsTemplate  = payments.map(({ value, account_name, description, category, date, status }) => `
@@ -210,18 +225,40 @@ async function handleAddAccountSubmit(event) {
   }
 }
 
-// MENU BALANCE
+async function handleAddCategorySubmit(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const formData = new FormData(form);
+
+  const urlAddCategory = `http://localhost/financy/category/create`;
+  const response = await sendFormData(formData, urlAddCategory);
+
+  const { feedbacks, lastPaymentId } = response;
+
+  showFeedbacks(form, feedbacks);
+
+  // If the new category was added, update category select
+  if (feedbacks[0].element === 'success') {
+    const categoryFlow = formData.get('flow');
+
+    const selectToBeUpdated = 
+      document.querySelector(`.form-payment[data-flow="S"] .select-category`);
+
+    addCategoriesByFlowIntoSelect(selectToBeUpdated, categoryFlow);
+  }
+}
+
+// === MENU BALANCE ===
 const elAccountToDisplay = document.querySelector('#account_to_display');
 
 addAccountsIntoSelect(elAccountToDisplay)
   .then(() => {
     elAccountToDisplay.addEventListener('change', showBalanceIntoDisplay);
     elAccountToDisplay.dispatchEvent(new Event('change'));
-
-    getValuesInsideSelect(elAccountToDisplay);
   });
 
-// MENU ADD PAYMENT
+// === MENU ADD PAYMENT ===
 const formsAddPayment = document.querySelectorAll('.form-payment');
 
 for (const form of formsAddPayment) {
@@ -242,7 +279,7 @@ for (const form of formsAddPayment) {
   hideErrorOnClick(form);
 }
 
-// MENU ADD ACCOUNT
+// === MENU ADD ACCOUNT ===
 const formAddAccount = document.querySelector('#form_add_account');
 
 // Handle submit
@@ -252,7 +289,17 @@ formAddAccount.addEventListener('submit', handleAddAccountSubmit);
 hideSuccessOnClick(formAddAccount);
 hideErrorOnClick(formAddAccount);
 
-// PAYMENT TABLE
+// === MENU ADD CATEGORY ===
+const formAddCategory = document.querySelector('#form_add_category');
+
+// Handle submit
+formAddCategory.addEventListener('submit', handleAddCategorySubmit);
+
+// Hide feedback messages on clicking
+hideSuccessOnClick(formAddCategory);
+hideErrorOnClick(formAddCategory);
+
+// === PAYMENT TABLE ===
 addPaymentsIntoTable();
 
 

@@ -1,13 +1,13 @@
 <div 
   class="modal fade" 
-  id="modal_add_account" 
+  id="modal_add_category" 
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 
       <div class="modal-header">
         <h5 class="modal-title" style="color: var(--brown);">
-          Adicionar conta
+          Adicionar categoria
         </h5>
         
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -15,41 +15,37 @@
         </button>
       </div>
 
-      <form action="#" id="form_add_account">
+      <form action="#" id="form_add_category">
         <div class="modal-body">
-          
+
           <div class="success valid-feedback"></div>
           <div class="database-error invalid-feedback"></div>
 
           <div class="field-list">
 
             <div class="item">
-              <label for="name_add_account">Nome da conta</label>
+              <label for="name_add_category">Nome da categoria</label>
 
               <input 
                 type="text" 
-                name="account_name" 
-                id="name_add_account" 
+                name="category" 
+                id="name_add_category" 
                 maxlength="100" 
                 required 
               />
 
-              <div class="account_nameError invalid-feedback"></div>
+              <div class="category-name-error invalid-feedback"></div>
             </div>
 
             <div class="item">
-              <label for="value_add_account">Valor inicial</label>
+              <label for="flow_add_category">Tipo da categoria</label>
 
-              <input 
-                type="text" 
-                class="money" 
-                name="value"
-                id="value_add_account"
-                step="0.01"
-                required
-              >
+              <select name="flow" id="flow_add_category">
+                <option value="E">Ganho</option>
+                <option value="S">Despesa</option>
+              </select>
 
-              <div class="valueError invalid-feedback"></div>
+              <div class="category-flow-error invalid-feedback"></div>
             </div>
 
           </div>
