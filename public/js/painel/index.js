@@ -346,7 +346,9 @@ const btnPrevious = document.querySelector('#pagination_previous');
 // Set state of next button
 setNextBtnState();
 
-btnNext.addEventListener('click', async () => {
+btnNext.addEventListener('click', (event) => {
+  event.preventDefault();
+
   paymentOffset += 10;
   addPaymentsIntoTable();
   setNextBtnState();
@@ -356,7 +358,9 @@ btnNext.addEventListener('click', async () => {
   }
 });
 
-btnPrevious.addEventListener('click', () => {
+btnPrevious.addEventListener('click', (event) => {
+  event.preventDefault();
+
   if (paymentOffset === 10) {
     btnPreviousWrapper.classList.add('disabled');
   }
