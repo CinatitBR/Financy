@@ -4,7 +4,7 @@
     private $host = 'localhost';
     private $user = 'root';
     private $password = '';
-    private $dbName = 'gestor_teste';
+    private $dbName = 'gestor_financeiro';
 
     protected $conn;
 

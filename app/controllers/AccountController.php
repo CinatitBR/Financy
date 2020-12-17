@@ -3,7 +3,7 @@
     private $accountModel;
 
     public function __construct() {
-      $this->accountModel = $this->model("accountModel");
+      $this->accountModel = $this->model("AccountModel");
     }
 
     public function create() {
