@@ -162,20 +162,37 @@ async function addCategoriesByFlowIntoSelect(select, flow) {
 }
 
 async function addPaymentsIntoTable() {
-  const tableBody = document.querySelector('#payment_table_body');
+  const table = document.querySelector('#payment-table__wrapper');
+  const tableBody = table.querySelector('#payment_table_body');
 
+  let paymentsTemplate;
+  
   const payments = await getPayments(paymentOffset);
 
-  const paymentsTemplate  = payments.map(({ payment_id, value, account_name, description, category, date, status }) => `
-    <tr data-payment-id="${payment_id}">
-      <th scope="row">R$ ${value}</th>
-      <td>${account_name}</td>
-      <td>${description}</td>
-      <td>${category}</td>
-      <td>${date}</td>
-      <td>${status}</td>
-    </tr>
-  `).join('');
+  if (payments.length === 0) {
+    paymentsTemplate = `
+      <tr data-payment-id="">
+        <th scope="row" colspan="6" style="text-align: center;">
+          Você ainda não adicionou nenhum pagamento
+        </th>
+      </tr>
+    `;
+  }
+  else {
+    paymentsTemplate  = payments.map(({ payment_id, value, account_name, description, category, date, status }) => {
+      return `
+        <tr data-payment-id="${payment_id}">
+          <th scope="row">R$ ${value}</th>
+          <td>${account_name}</td>
+          <td>${description}</td>
+          <td>${category}</td>
+          <td>${date}</td>
+          <td>${status}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
 
   tableBody.innerHTML = paymentsTemplate;
 }
