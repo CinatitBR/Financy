@@ -1,4 +1,4 @@
-<div class="payment-table__wrapper table-responsive">
+<div id="payment-table__wrapper" class="table-responsive">
   <table class="payment-table table table-hover table-dark">
     <thead>
       <tr>
@@ -27,18 +27,18 @@
       </tr> -->
     </tbody>
   </table>
+
+  <nav class="pagination__wrapper mt-3" aria-label="Page navigation">
+    <ul class="pagination justify-content-center pagination-lg">
+
+      <li class="page-item pagination-previous__wrapper disabled">
+        <a class="page-link" id="pagination_previous" href="#" tabindex="-1">Previous</a>
+      </li>
+
+      <li class="page-item pagination-next__wrapper disabled">
+        <a class="page-link" id="pagination_next" href="#">Next</a>
+      </li>
+
+    </ul>
+  </nav>
 </div>
-
-<nav class="pagination__wrapper mt-3" aria-label="Page navigation">
-  <ul class="pagination justify-content-center pagination-lg">
-
-    <li class="page-item pagination-previous__wrapper disabled">
-      <a class="page-link" id="pagination_previous" href="#" tabindex="-1">Previous</a>
-    </li>
-
-    <li class="page-item pagination-next__wrapper disabled">
-      <a class="page-link" id="pagination_next" href="#">Next</a>
-    </li>
-
-  </ul>
-</nav>
