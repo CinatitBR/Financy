@@ -39,6 +39,11 @@
         // Validates value
         $data['value'] = preg_replace("/[R$\s\.]/", '', $data['value']);
         $data['value'] = preg_replace("/[,]/", '.', $data['value']);
+        
+        // Converts value to negative depending on the flow
+        if ($data['flow'] === 'S') {
+          $data['value'] = -1 * $data['value'];
+        }
 
         // If the value is not numeric
         if (!is_numeric($data['value'])) {
@@ -63,7 +68,7 @@
         // If the payment was not added
         if (!$lastPaymentId) {
           $feedbackErrors[] = [
-            'element' => 'databaseError',
+            'element' => 'database-error',
             'message' => "Erro ao adicionar pagamento. Por favor, tente novamente."
           ];
 

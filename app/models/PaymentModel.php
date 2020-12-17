@@ -9,11 +9,9 @@
 
       // If the transaction has a "completed" status
       if ($status_id == 2) {
-        $signal = $flow === "E" ? "+" : "-";
-
         $sql = "
           UPDATE account
-          SET balance = balance $signal $value
+          SET balance = balance + $value
           WHERE account_id = $account_id
         ";
 
