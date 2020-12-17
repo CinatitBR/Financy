@@ -118,20 +118,12 @@ async function getPayments(paymentOffset) {
 async function addAccountsIntoSelect(select) {
   const accounts = await getAccounts();
 
-  // Get ids inside the select
-  // const idsInsideSelect = getValuesInsideSelect(select);
-
   const accountsTemplate = accounts.map(({ account_id, balance, account_name }) => {
-
-    // If the account_id is not inside the select
-    // if (!idsInsideSelect.includes(account_id)) {
-      return `
-        <option value="${account_id}" data-balance="${balance}">
-          ${account_name}
-        </option>
-      `;
-    // }
-
+    return `
+      <option value="${account_id}" data-balance="${balance}">
+        ${account_name}
+      </option>
+    `;
   }).join('');
 
   select.innerHTML = accountsTemplate;
